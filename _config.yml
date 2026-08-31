@@ -7,14 +7,14 @@ title: 我的博客
 subtitle: 记录生活与技术
 description: 一个分享技术、生活与思考的个人博客
 keywords: Hexo, Butterfly, GitHub Pages, 个人博客
-author: 你的名字
+author: yc0203
 language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://your-username.github.io
-root: /
+url: https://yc0203.github.io/yc0203
+root: /yc0203/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -104,6 +104,6 @@ theme:  butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/your-username/your-username.github.io.git
+  repo: https://github.com/yc0203/yc0203.git
   branch: gh-pages
   message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
