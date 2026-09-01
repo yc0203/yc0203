@@ -30,8 +30,8 @@ menu:
 
 code_blocks:
   # Code block theme: darker / pale night / light / ocean / false
-  theme: light
-  macStyle: false
+  theme: darker
+  macStyle: true
   # Code block height limit (unit: px)
   height_limit: false
   word_wrap: false
@@ -48,7 +48,7 @@ code_blocks:
 #   icon: link || the description || color
 social:
   fab fa-github: https://github.com/yc0203 || Github || '#24292e'
-  fas fa-envelope: mailto:you@example.com || Email || '#4a7dbe'
+  fas fa-envelope: mailto:3506557351@qq.com || Email || '#4a7dbe'
 
 # --------------------------------------
 # Image Settings
@@ -183,9 +183,9 @@ index_layout: 3
 # 3: auto_excerpt (default)
 # false: do not show the article introduction
 index_post_content:
-  method: 3
+  method: 2
   # If you set method to 2 or 3, the length need to config
-  length: 500
+  length: 200
 
 # --------------------------------------
 # Post Settings
@@ -290,7 +290,7 @@ aside:
       enable: true
       icon: fab fa-github
       text: Follow Me
-      link: https://github.com/xxxxxx
+      link: https://github.com/yc0203
   card_announcement:
     enable: true
     content: This is my Blog
@@ -1058,7 +1058,7 @@ css_prefix: true
 # Insert the code to head (before '</head>' tag) and the bottom (before '</body>' tag)
 inject:
   head:
-    # - <link rel="stylesheet" href="/xxx.css">
+    - <link rel="stylesheet" href="/yc0203/css/custom.css">
   bottom:
     # - <script src="xxxx"></script>
 
