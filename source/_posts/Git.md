@@ -1,4 +1,4 @@
-﻿---
+---
 title: Git
 date: 2026-08-31 23:08:35
 tags:
@@ -8,6 +8,8 @@ tags:
 categories:
   - 技术
   - Git
+cover: /img/avatar.png
+aside: false
 description: 详细介绍 Git 的作用、意义、使用方法、常用命令行与实战案例。
 ---
 

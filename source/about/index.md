@@ -1,7 +1,8 @@
-﻿---
+---
 title: 关于
 date: 2026-08-31 00:00:00
 type: about
+aside: false
 ---
 
 <div style="text-align:center;margin:20px 0 30px;">

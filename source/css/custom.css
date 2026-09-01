@@ -1,0 +1,60 @@
+﻿:root {
+  --main-color: #660874;
+  --main-hover-color: #8b5cf6;
+  --card-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+  --card-bg: #1e1e1e;
+}
+
+/* 文章卡片圆角、阴影、间距 */
+.recent-post-item {
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.recent-post-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* 非首页隐藏侧边栏卡片 */
+#body-wrap.page[class*="type-"] .aside-content,
+#body-wrap.post .aside-content {
+  display: none !important;
+}
+
+/* 导航栏透明 + 滚动隐藏 */
+#nav {
+  transition: background 0.3s ease, transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+#nav.nav-hide {
+  transform: translateY(-100%);
+}
+
+/* 清华紫主题色 */
+a:hover,
+.article-title:hover,
+.site-page:hover {
+  color: var(--main-hover-color) !important;
+}
+
+#site-title {
+  color: var(--main-color);
+}
+
+/* 代码块微调 */
+.highlight {
+  border-radius: 10px;
+}
+
+/* 回到顶部按钮圆角 */
+#go-up {
+  border-radius: 50%;
+}
