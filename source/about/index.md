@@ -1,4 +1,4 @@
-﻿---
+---
 title: 关于
 date: 2026-08-31 00:00:00
 type: about
@@ -10,7 +10,7 @@ type: about
 
 <div id="intro-zh" style="line-height:1.9;">
 <h2>关于我</h2>
-<p><strong>姓名：</strong>杨成</p>
+<p><strong>姓名：</strong>YCheng</p>
 <p><strong>本科：</strong>西北大学</p>
 <p><strong>研究生：</strong>西北大学</p>
 <p><strong>年级：</strong>研一</p>
@@ -25,7 +25,7 @@ type: about
 
 <div id="intro-en" style="line-height:1.9;display:none;">
 <h2>About Me</h2>
-<p><strong>Name:</strong> Cheng Yang</p>
+<p><strong>Name:</strong> YCheng</p>
 <p><strong>Undergraduate:</strong> Northwest University</p>
 <p><strong>Graduate:</strong> Northwest University</p>
 <p><strong>Grade:</strong> First-year Master's Student</p>
