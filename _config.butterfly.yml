@@ -1059,9 +1059,9 @@ css_prefix: true
 inject:
   head:
     - <link rel="stylesheet" href="/yc0203/css/custom.css">
-    - <link rel="stylesheet" href="/yc0203/css/mini-player.css">
+    - <link rel="stylesheet" href="/yc0203/css/mini-player.css?v=20260903">
   bottom:
-    - '<div id="mini-player" class="mini-player"><div class="mini-player-cover">🎵</div><div class="mini-player-info"><span class="mini-player-title" id="mini-player-title">Loading...</span></div><div class="mini-player-controls"><button class="mini-btn" id="mini-prev" title="上一首">⏮</button><button class="mini-btn play-btn" id="mini-play" title="播放/暂停">▶</button><button class="mini-btn" id="mini-next" title="下一首">⏭</button></div></div><audio id="mini-audio" preload="none"></audio><script src="/yc0203/js/mini-player.js"></script>'
+    - '<div id="mini-player" class="mini-player"><div class="mini-player-cover">🎵</div><div class="mini-player-info"><span class="mini-player-title" id="mini-player-title">Loading...</span></div><div class="mini-player-controls"><button class="mini-btn" id="mini-prev" title="上一首">⏮</button><button class="mini-btn play-btn" id="mini-play" title="播放/暂停">▶</button><button class="mini-btn" id="mini-next" title="下一首">⏭</button></div></div><audio id="mini-audio" preload="none"></audio><script src="/yc0203/js/mini-player.js?v=20260903"></script>'
 
 # CDN Settings
 # Don't modify the following settings unless you know how they work
