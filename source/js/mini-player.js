@@ -1,12 +1,12 @@
-﻿(function () {
+(function () {
   var playlist = [
     {
-      title: 'Demo Song 1',
-      url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'
+      title: '雨爱 - 杨丞琳',
+      url: '/yc0203/music/' + encodeURIComponent('杨丞琳 - 雨爱.mp3')
     },
     {
-      title: 'Demo Song 2',
-      url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3'
+      title: '我不难过 - 孙燕姿',
+      url: '/yc0203/music/' + encodeURIComponent('孙燕姿+-+我不难过.mp3')
     }
   ];
 
@@ -26,8 +26,16 @@
   }
 
   function playSong() {
-    audio.play().catch(function () {});
-    playBtn.textContent = '⏸';
+    var promise = audio.play();
+    if (promise) {
+      promise.then(function () {
+        playBtn.textContent = '⏸';
+      }).catch(function () {
+        playBtn.textContent = '▶';
+      });
+    } else {
+      playBtn.textContent = '⏸';
+    }
   }
 
   function togglePlay() {
@@ -52,6 +60,10 @@
   }
 
   audio.addEventListener('ended', nextSong);
+  audio.addEventListener('error', function () {
+    playBtn.textContent = '▶';
+    title.textContent = '播放失败，请检查音乐链接';
+  });
   playBtn.addEventListener('click', togglePlay);
   nextBtn.addEventListener('click', nextSong);
   prevBtn.addEventListener('click', prevSong);
