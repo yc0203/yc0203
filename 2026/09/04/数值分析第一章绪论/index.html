@@ -1,0 +1,451 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>数值分析 第一章 绪论：概念、技巧与考点梳理 | Cheng's Blog</title><meta name="author" content="YCheng"><meta name="copyright" content="YCheng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="数值分析第一章绪论学习笔记，梳理研究对象、误差基础、舍入误差、数值稳定性等核心概念与考点。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数值分析 第一章 绪论：概念、技巧与考点梳理">
+<meta property="og:url" content="https://yc0203.github.io/yc0203/2026/09/04/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E7%AC%AC%E4%B8%80%E7%AB%A0%E7%BB%AA%E8%AE%BA/index.html">
+<meta property="og:site_name" content="Cheng&#39;s Blog">
+<meta property="og:description" content="数值分析第一章绪论学习笔记，梳理研究对象、误差基础、舍入误差、数值稳定性等核心概念与考点。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://yc0203.github.io/yc0203/img/avatar.png">
+<meta property="article:published_time" content="2026-09-04T04:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-08T15:21:59.178Z">
+<meta property="article:author" content="YCheng">
+<meta property="article:tag" content="数值分析">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="误差">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yc0203.github.io/yc0203/img/avatar.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "数值分析 第一章 绪论：概念、技巧与考点梳理",
+  "url": "https://yc0203.github.io/yc0203/2026/09/04/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E7%AC%AC%E4%B8%80%E7%AB%A0%E7%BB%AA%E8%AE%BA/",
+  "image": "https://yc0203.github.io/yc0203/img/avatar.png",
+  "datePublished": "2026-09-04T04:00:00.000Z",
+  "dateModified": "2026-09-08T15:21:59.178Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "YCheng",
+      "url": "https://yc0203.github.io/yc0203"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/yc0203/img/favicon.png"><link rel="canonical" href="https://yc0203.github.io/yc0203/2026/09/04/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E7%AC%AC%E4%B8%80%E7%AB%A0%E7%BB%AA%E8%AE%BA/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/yc0203/css/index.css?v=5.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        const data = { value }
+
+        if (ttl != null) {
+          data.expiry = Date.now() + ttl * 86400000
+        }
+
+        localStorage.setItem(key, JSON.stringify(data))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return
+
+        try {
+          const data = JSON.parse(itemStr)
+
+          if (data.expiry && Date.now() > data.expiry) {
+            localStorage.removeItem(key)
+            return
+          }
+
+          return data.value
+        } catch {
+          localStorage.removeItem(key)
+        }
+      }
+    }
+
+    const scriptCache = new Map()
+    const cssCache = new Map()
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => {
+        if (scriptCache.has(url)) {
+          return scriptCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+
+          script.src = url
+          script.async = true
+
+          for (const key in attr) {
+            script.setAttribute(key, attr[key])
+          }
+
+          script.onload = resolve
+          script.onerror = reject
+
+          document.head.appendChild(script)
+        })
+
+        scriptCache.set(url, promise)
+
+        return promise
+      },
+      getCSS: (url, id) => {
+        if (cssCache.has(url)) {
+          return cssCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+
+          link.rel = 'stylesheet'
+          link.href = url
+
+          if (id) {
+            link.id = id
+          }
+
+          link.onload = resolve
+          link.onerror = reject
+
+          document.head.appendChild(link)
+        })
+
+        cssCache.set(url, promise)
+
+        return promise
+      },
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]')
+      const activateDarkMode = () => {
+        document.documentElement.dataset.theme = 'dark'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.dataset.theme = 'light'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/yc0203/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数值分析 第一章 绪论：概念、技巧与考点梳理',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/yc0203/css/custom.css"><link rel="stylesheet" href="/yc0203/css/mini-player.css?v=20260903"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/yc0203/img/avatar.png" onerror="this.onerror=null;this.src='/yc0203/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/yc0203/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/yc0203/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/yc0203/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/yc0203/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/yc0203/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/yc0203/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/yc0203/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/yc0203/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/yc0203/"><span class="site-name">Cheng's Blog</span></a><a class="nav-page-title" href="/yc0203/"><span class="site-name">数值分析 第一章 绪论：概念、技巧与考点梳理</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/yc0203/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/yc0203/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/yc0203/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/yc0203/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/yc0203/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">数值分析 第一章 绪论：概念、技巧与考点梳理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-09-04T04:00:00.000Z" title="发表于 2026-09-04 12:00:00">2026-09-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-08T15:21:59.178Z" title="更新于 2026-09-08 23:21:59">2026-09-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/yc0203/categories/%E5%AD%A6%E4%B9%A0/">学习</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/yc0203/categories/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90/">数值分析</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="数值分析-第一章-绪论：概念、技巧与考点梳理"><a href="#数值分析-第一章-绪论：概念、技巧与考点梳理" class="headerlink" title="数值分析 第一章 绪论：概念、技巧与考点梳理"></a>数值分析 第一章 绪论：概念、技巧与考点梳理</h1><h2 id="一、本章知识框架"><a href="#一、本章知识框架" class="headerlink" title="一、本章知识框架"></a>一、本章知识框架</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">数值分析的对象与任务</span><br><span class="line">        ↓</span><br><span class="line">误差基础知识</span><br><span class="line">   ├── 误差来源</span><br><span class="line">   ├── 误差度量</span><br><span class="line">   └── 初值误差传播</span><br><span class="line">        ↓</span><br><span class="line">舍入误差分析与数值稳定性</span><br><span class="line">   ├── 浮点数系</span><br><span class="line">   └── 算法稳定性</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="二、1-1-数值分析的对象与任务"><a href="#二、1-1-数值分析的对象与任务" class="headerlink" title="二、1.1 数值分析的对象与任务"></a>二、1.1 数值分析的对象与任务</h2><h3 id="1-对象"><a href="#1-对象" class="headerlink" title="1. 对象"></a>1. 对象</h3><p>数值分析是研究用计算机求解数学问题的数值方法。</p>
+<p>它研究的是：</p>
+<ul>
+<li>如何把数学问题转化为计算机可计算的算法</li>
+<li>如何保证计算结果足够准确</li>
+<li>如何提高计算效率</li>
+</ul>
+<h3 id="2-常见问题类型"><a href="#2-常见问题类型" class="headerlink" title="2. 常见问题类型"></a>2. 常见问题类型</h3><ul>
+<li>非线性方程求根</li>
+<li>线性方程组求解</li>
+<li>插值与拟合</li>
+<li>数值积分与数值微分</li>
+<li>常微分方程初值问题</li>
+<li>矩阵特征值问题</li>
+</ul>
+<h3 id="3-数值分析的任务"><a href="#3-数值分析的任务" class="headerlink" title="3. 数值分析的任务"></a>3. 数值分析的任务</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">构造算法</span><br><span class="line">    ↓</span><br><span class="line">分析误差</span><br><span class="line">    ↓</span><br><span class="line">讨论收敛性</span><br><span class="line">    ↓</span><br><span class="line">分析数值稳定性</span><br><span class="line">    ↓</span><br><span class="line">估计计算复杂度</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-核心思想"><a href="#4-核心思想" class="headerlink" title="4. 核心思想"></a>4. 核心思想</h3><table>
+<thead>
+<tr>
+<th>思想</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>近似代替</td>
+<td>用有限过程近似无限过程</td>
+</tr>
+<tr>
+<td>离散化</td>
+<td>把连续问题变成离散问题</td>
+</tr>
+<tr>
+<td>递推化</td>
+<td>用递推公式减少计算量</td>
+</tr>
+<tr>
+<td>迭代化</td>
+<td>用迭代逼近精确解</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="三、1-2-误差基础知识"><a href="#三、1-2-误差基础知识" class="headerlink" title="三、1.2 误差基础知识"></a>三、1.2 误差基础知识</h2><h3 id="1-误差来源"><a href="#1-误差来源" class="headerlink" title="1. 误差来源"></a>1. 误差来源</h3><h4 id="①-模型误差"><a href="#①-模型误差" class="headerlink" title="① 模型误差"></a>① 模型误差</h4><p>实际问题抽象成数学模型时产生的误差。</p>
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">忽略空气阻力、摩擦力等次要因素。</span><br></pre></td></tr></table></figure>
+
+<h4 id="②-观测误差"><a href="#②-观测误差" class="headerlink" title="② 观测误差"></a>② 观测误差</h4><p>测量工具和人为因素导致的数据误差。</p>
+<h4 id="③-截断误差-方法误差"><a href="#③-截断误差-方法误差" class="headerlink" title="③ 截断误差 / 方法误差"></a>③ 截断误差 / 方法误差</h4><p>用近似方法代替精确方法产生的误差。</p>
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用泰勒展开前几项代替无穷级数。</span><br></pre></td></tr></table></figure>
+
+<h4 id="④-舍入误差"><a href="#④-舍入误差" class="headerlink" title="④ 舍入误差"></a>④ 舍入误差</h4><p>计算机浮点数位数有限，保存数据时产生的误差。</p>
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.1 在二进制中不能精确表示。</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-误差度量"><a href="#2-误差度量" class="headerlink" title="2. 误差度量"></a>2. 误差度量</h3><h4 id="①-绝对误差"><a href="#①-绝对误差" class="headerlink" title="① 绝对误差"></a>① 绝对误差</h4><p>设精确值为 x，近似值为 x*，则绝对误差定义为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e = x - x*</span><br></pre></td></tr></table></figure>
+
+<p>如果存在正数 ε，使得：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">|x - x*| &lt;= ε</span><br></pre></td></tr></table></figure>
+
+<p>则称 ε 为绝对误差限。</p>
+<h4 id="②-相对误差"><a href="#②-相对误差" class="headerlink" title="② 相对误差"></a>② 相对误差</h4><p>相对误差定义为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">er = e / x</span><br></pre></td></tr></table></figure>
+
+<p>近似相对误差常用：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">er = e / x*</span><br></pre></td></tr></table></figure>
+
+<p>如果存在正数 εr，使得：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">|e / x| &lt;= εr</span><br></pre></td></tr></table></figure>
+
+<p>则称 εr 为相对误差限。</p>
+<h4 id="③-有效数字"><a href="#③-有效数字" class="headerlink" title="③ 有效数字"></a>③ 有效数字</h4><p>如果近似值 x* 的绝对误差不超过某一位的半个单位，则从该位起直到 x* 的第一位非零数字为止的所有数字都叫有效数字。</p>
+<p>简单判断方法：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">误差限 &lt;= 0.5 × 10^(m-n)</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li>m：小数点前第一位非零数字所在位数</li>
+<li>n：有效数字位数</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">π ≈ 3.1416</span><br></pre></td></tr></table></figure>
+
+<p>通常认为有 5 位有效数字。</p>
+<h4 id="④-误差度量易错点"><a href="#④-误差度量易错点" class="headerlink" title="④ 误差度量易错点"></a>④ 误差度量易错点</h4><ul>
+<li>绝对误差有量纲</li>
+<li>相对误差无量纲</li>
+<li>有效数字越多，绝对误差限越小</li>
+<li>有效数字与小数点后位数不是一回事</li>
+</ul>
+<h3 id="3-初值误差传播"><a href="#3-初值误差传播" class="headerlink" title="3. 初值误差传播"></a>3. 初值误差传播</h3><h4 id="①-一元函数"><a href="#①-一元函数" class="headerlink" title="① 一元函数"></a>① 一元函数</h4><p>设 y = f(x)，x 有误差 Δx，则 y 的误差近似为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Δy ≈ f&#x27;(x) Δx</span><br></pre></td></tr></table></figure>
+
+<p>相对误差传播：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Δy / y ≈ [x f&#x27;(x) / f(x)] × (Δx / x)</span><br></pre></td></tr></table></figure>
+
+<h4 id="②-多元函数"><a href="#②-多元函数" class="headerlink" title="② 多元函数"></a>② 多元函数</h4><p>设 y = f(x1, x2, …, xn)，则：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Δy ≈ |∂f/∂x1| Δx1 + |∂f/∂x2| Δx2 + ... + |∂f/∂xn| Δxn</span><br></pre></td></tr></table></figure>
+
+<h4 id="③-条件数"><a href="#③-条件数" class="headerlink" title="③ 条件数"></a>③ 条件数</h4><p>条件数用于衡量问题对误差的敏感程度：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">条件数 ≈ |x f&#x27;(x) / f(x)|</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>条件数小：问题良态，误差放大不严重</li>
+<li>条件数大：问题病态，微小输入误差可能引起很大输出误差</li>
+</ul>
+<h4 id="④-典型例子"><a href="#④-典型例子" class="headerlink" title="④ 典型例子"></a>④ 典型例子</h4><p>计算：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(x) = x1 - x2</span><br></pre></td></tr></table></figure>
+
+<p>当 x1 和 x2 非常接近时，减法会产生严重的相对误差放大，称为”灾难性抵消”。</p>
+<p>避免方法：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">通过公式变形避免两个接近的数相减。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、1-3-舍入误差分析及数值稳定性"><a href="#四、1-3-舍入误差分析及数值稳定性" class="headerlink" title="四、1.3 舍入误差分析及数值稳定性"></a>四、1.3 舍入误差分析及数值稳定性</h2><h3 id="1-浮点数系"><a href="#1-浮点数系" class="headerlink" title="1. 浮点数系"></a>1. 浮点数系</h3><p>计算机中实数通常用浮点数表示：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = ± 0.d1d2...dt × β^e</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li>β：基数，通常为 2</li>
+<li>t：尾数字长</li>
+<li>e：指数</li>
+<li>d1 非零</li>
+</ul>
+<h3 id="2-机器精度"><a href="#2-机器精度" class="headerlink" title="2. 机器精度"></a>2. 机器精度</h3><p>机器精度是浮点数系中最重要的参数之一。</p>
+<p>常用表示：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eps = 0.5 × β^(1-t)</span><br></pre></td></tr></table></figure>
+
+<p>它的含义是：1 与大于 1 的最小浮点数之间的距离的一半。</p>
+<p>机器精度越小，浮点数表示越精确。</p>
+<h3 id="3-浮点运算的舍入误差"><a href="#3-浮点运算的舍入误差" class="headerlink" title="3. 浮点运算的舍入误差"></a>3. 浮点运算的舍入误差</h3><p>计算机进行加减乘除后，结果需要重新舍入到浮点数系中。</p>
+<p>设 x、y 是浮点数，则：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fl(x op y) = (x op y)(1 + δ)</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">|δ| &lt;= eps</span><br></pre></td></tr></table></figure>
+
+<p>也就是说，每次浮点运算都可能引入一个很小的相对误差。</p>
+<h3 id="4-舍入误差累积"><a href="#4-舍入误差累积" class="headerlink" title="4. 舍入误差累积"></a>4. 舍入误差累积</h3><p>单次舍入误差很小，但大量运算后误差可能累积放大。</p>
+<p>影响因素：</p>
+<ul>
+<li>运算次数</li>
+<li>算法结构</li>
+<li>问题本身的条件数</li>
+</ul>
+<h3 id="5-算法的数值稳定性"><a href="#5-算法的数值稳定性" class="headerlink" title="5. 算法的数值稳定性"></a>5. 算法的数值稳定性</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>一个算法如果对初始误差和舍入误差不敏感，计算结果能保持可靠，则称该算法是数值稳定的。</p>
+<p>如果误差在计算过程中被不断放大，则称算法不稳定。</p>
+<h4 id="稳定算法与不稳定算法"><a href="#稳定算法与不稳定算法" class="headerlink" title="稳定算法与不稳定算法"></a>稳定算法与不稳定算法</h4><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">稳定算法：误差增长缓慢，结果可靠</span><br><span class="line">不稳定算法：误差指数增长，结果失真</span><br></pre></td></tr></table></figure>
+
+<h4 id="经典考点例子"><a href="#经典考点例子" class="headerlink" title="经典考点例子"></a>经典考点例子</h4><p>计算积分：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In = ∫₀¹ x^n / (x+5) dx</span><br></pre></td></tr></table></figure>
+
+<p>如果使用递推公式：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In = 1/n - 5 I(n-1)</span><br></pre></td></tr></table></figure>
+
+<p>向前递推可能不稳定，误差会被放大。</p>
+<p>如果改用向后递推，可能更稳定。</p>
+<h4 id="判断方法"><a href="#判断方法" class="headerlink" title="判断方法"></a>判断方法</h4><ul>
+<li>看误差是否被放大</li>
+<li>看误差增长是线性还是指数</li>
+<li>看是否出现两个接近数相减</li>
+<li>看是否除以很小的数</li>
+</ul>
+<h3 id="6-避免不稳定的常用技巧"><a href="#6-避免不稳定的常用技巧" class="headerlink" title="6. 避免不稳定的常用技巧"></a>6. 避免不稳定的常用技巧</h3><ul>
+<li>避免两个相近数相减</li>
+<li>避免除以绝对值很小的数</li>
+<li>减少运算次数</li>
+<li>使用稳定的递推方向</li>
+<li>使用高精度数据类型</li>
+<li>对公式做等价变形</li>
+</ul>
+<hr>
+<h2 id="五、主要考点总结"><a href="#五、主要考点总结" class="headerlink" title="五、主要考点总结"></a>五、主要考点总结</h2><h3 id="1-必背概念"><a href="#1-必背概念" class="headerlink" title="1. 必背概念"></a>1. 必背概念</h3><table>
+<thead>
+<tr>
+<th>概念</th>
+<th>关键点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>截断误差</td>
+<td>方法本身近似引起</td>
+</tr>
+<tr>
+<td>舍入误差</td>
+<td>浮点数存储和运算引起</td>
+</tr>
+<tr>
+<td>绝对误差</td>
+<td>e = x - x*</td>
+</tr>
+<tr>
+<td>相对误差</td>
+<td>er = e / x</td>
+</tr>
+<tr>
+<td>有效数字</td>
+<td>与绝对误差限有关</td>
+</tr>
+<tr>
+<td>条件数</td>
+<td>衡量问题敏感性</td>
+</tr>
+<tr>
+<td>机器精度</td>
+<td>浮点数表示精度</td>
+</tr>
+<tr>
+<td>数值稳定性</td>
+<td>误差是否被放大</td>
+</tr>
+</tbody></table>
+<h3 id="2-常考题型"><a href="#2-常考题型" class="headerlink" title="2. 常考题型"></a>2. 常考题型</h3><ul>
+<li>判断误差类型</li>
+<li>计算绝对误差限和相对误差限</li>
+<li>判断有效数字位数</li>
+<li>分析误差传播</li>
+<li>判断算法是否稳定</li>
+<li>给出避免误差扩大的算法改进</li>
+</ul>
+<h3 id="3-高频考点"><a href="#3-高频考点" class="headerlink" title="3. 高频考点"></a>3. 高频考点</h3><ul>
+<li>用泰勒展开说明截断误差</li>
+<li>浮点数舍入误差估计</li>
+<li>递推公式稳定性判断</li>
+<li>相近数相减的危害</li>
+<li>条件数与病态问题</li>
+</ul>
+<hr>
+<h2 id="六、易错提醒"><a href="#六、易错提醒" class="headerlink" title="六、易错提醒"></a>六、易错提醒</h2><ol>
+<li>相对误差分母有时用 x，有时用 x*，题目中要看清。</li>
+<li>有效数字位数不是看小数点后有几位。</li>
+<li>截断误差和舍入误差不能混为一谈。</li>
+<li>算法稳定不等于结果绝对精确，只是误差不被严重放大。</li>
+<li>条件数大是问题本身病态，不是算法造成的。</li>
+<li>避免相近数相减，可以通过有理化、泰勒展开等方法改造公式。</li>
+</ol>
+<hr>
+<h2 id="七、记忆口诀"><a href="#七、记忆口诀" class="headerlink" title="七、记忆口诀"></a>七、记忆口诀</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">模型观测有误差</span><br><span class="line">截断舍入要分清</span><br><span class="line">绝对相对加有效</span><br><span class="line">初值误差看条件</span><br><span class="line">浮点运算有舍入</span><br><span class="line">稳定算法不放大</span><br><span class="line">相近相减要避免</span><br><span class="line">公式变形保精度</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="八、本章重点一句话"><a href="#八、本章重点一句话" class="headerlink" title="八、本章重点一句话"></a>八、本章重点一句话</h2><p>数值分析就是用近似方法求解数学问题，同时研究误差如何产生、如何度量、如何传播，以及如何设计数值稳定的算法。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://yc0203.github.io/yc0203">YCheng</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://yc0203.github.io/yc0203/2026/09/04/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E7%AC%AC%E4%B8%80%E7%AB%A0%E7%BB%AA%E8%AE%BA/">https://yc0203.github.io/yc0203/2026/09/04/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E7%AC%AC%E4%B8%80%E7%AB%A0%E7%BB%AA%E8%AE%BA/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://yc0203.github.io/yc0203" target="_blank">Cheng's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/yc0203/tags/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90/">数值分析</a><a class="post-meta__tags" href="/yc0203/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><a class="post-meta__tags" href="/yc0203/tags/%E8%AF%AF%E5%B7%AE/">误差</a></div><div class="post-share"><div class="social-share" data-image="/yc0203/img/avatar.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/yc0203/2026/09/04/AI%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%B0%83%E7%94%A8%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/" title="AI 大模型调用实战：热门模型客户端、API 协议与 Agent 接入全攻略"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">AI 大模型调用实战：热门模型客户端、API 协议与 Agent 接入全攻略</div></div><div class="info-2"><div class="info-item-1">实战讲解热门大模型客户端安装、Web 版本、API 调用格式、终端工具、流式协议、Function Calling 与 Agent 接入原理。</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/yc0203/img/avatar.png" onerror="this.onerror=null;this.src='/yc0203/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">YCheng</div><div class="author-info-description">一个分享技术、生活与思考的个人博客</div><div class="site-data"><a href="/yc0203/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/yc0203/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/yc0203/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yc0203"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/yc0203" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:3506557351@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA%EF%BC%9A%E6%A6%82%E5%BF%B5%E3%80%81%E6%8A%80%E5%B7%A7%E4%B8%8E%E8%80%83%E7%82%B9%E6%A2%B3%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">数值分析 第一章 绪论：概念、技巧与考点梳理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%9C%AC%E7%AB%A0%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6"><span class="toc-number">1.1.</span> <span class="toc-text">一、本章知识框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%811-1-%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E7%9A%84%E5%AF%B9%E8%B1%A1%E4%B8%8E%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.2.</span> <span class="toc-text">二、1.1 数值分析的对象与任务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 常见问题类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. 数值分析的任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3"><span class="toc-number">1.2.4.</span> <span class="toc-text">4. 核心思想</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%811-2-%E8%AF%AF%E5%B7%AE%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.3.</span> <span class="toc-text">三、1.2 误差基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%AF%AF%E5%B7%AE%E6%9D%A5%E6%BA%90"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. 误差来源</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A0-%E6%A8%A1%E5%9E%8B%E8%AF%AF%E5%B7%AE"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">① 模型误差</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A1-%E8%A7%82%E6%B5%8B%E8%AF%AF%E5%B7%AE"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">② 观测误差</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A2-%E6%88%AA%E6%96%AD%E8%AF%AF%E5%B7%AE-%E6%96%B9%E6%B3%95%E8%AF%AF%E5%B7%AE"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">③ 截断误差 &#x2F; 方法误差</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A3-%E8%88%8D%E5%85%A5%E8%AF%AF%E5%B7%AE"><span class="toc-number">1.3.1.4.</span> <span class="toc-text">④ 舍入误差</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%AF%AF%E5%B7%AE%E5%BA%A6%E9%87%8F"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. 误差度量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A0-%E7%BB%9D%E5%AF%B9%E8%AF%AF%E5%B7%AE"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">① 绝对误差</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A1-%E7%9B%B8%E5%AF%B9%E8%AF%AF%E5%B7%AE"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">② 相对误差</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A2-%E6%9C%89%E6%95%88%E6%95%B0%E5%AD%97"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">③ 有效数字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A3-%E8%AF%AF%E5%B7%AE%E5%BA%A6%E9%87%8F%E6%98%93%E9%94%99%E7%82%B9"><span class="toc-number">1.3.2.4.</span> <span class="toc-text">④ 误差度量易错点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%88%9D%E5%80%BC%E8%AF%AF%E5%B7%AE%E4%BC%A0%E6%92%AD"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. 初值误差传播</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A0-%E4%B8%80%E5%85%83%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">① 一元函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A1-%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">② 多元函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A2-%E6%9D%A1%E4%BB%B6%E6%95%B0"><span class="toc-number">1.3.3.3.</span> <span class="toc-text">③ 条件数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A3-%E5%85%B8%E5%9E%8B%E4%BE%8B%E5%AD%90"><span class="toc-number">1.3.3.4.</span> <span class="toc-text">④ 典型例子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%811-3-%E8%88%8D%E5%85%A5%E8%AF%AF%E5%B7%AE%E5%88%86%E6%9E%90%E5%8F%8A%E6%95%B0%E5%80%BC%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="toc-number">1.4.</span> <span class="toc-text">四、1.3 舍入误差分析及数值稳定性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B3%BB"><span class="toc-number">1.4.1.</span> <span class="toc-text">1. 浮点数系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9C%BA%E5%99%A8%E7%B2%BE%E5%BA%A6"><span class="toc-number">1.4.2.</span> <span class="toc-text">2. 机器精度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B5%AE%E7%82%B9%E8%BF%90%E7%AE%97%E7%9A%84%E8%88%8D%E5%85%A5%E8%AF%AF%E5%B7%AE"><span class="toc-number">1.4.3.</span> <span class="toc-text">3. 浮点运算的舍入误差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%88%8D%E5%85%A5%E8%AF%AF%E5%B7%AE%E7%B4%AF%E7%A7%AF"><span class="toc-number">1.4.4.</span> <span class="toc-text">4. 舍入误差累积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%AE%97%E6%B3%95%E7%9A%84%E6%95%B0%E5%80%BC%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="toc-number">1.4.5.</span> <span class="toc-text">5. 算法的数值稳定性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.4.5.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A8%B3%E5%AE%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E4%B8%8D%E7%A8%B3%E5%AE%9A%E7%AE%97%E6%B3%95"><span class="toc-number">1.4.5.2.</span> <span class="toc-text">稳定算法与不稳定算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E8%80%83%E7%82%B9%E4%BE%8B%E5%AD%90"><span class="toc-number">1.4.5.3.</span> <span class="toc-text">经典考点例子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%96%B9%E6%B3%95"><span class="toc-number">1.4.5.4.</span> <span class="toc-text">判断方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E9%81%BF%E5%85%8D%E4%B8%8D%E7%A8%B3%E5%AE%9A%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="toc-number">1.4.6.</span> <span class="toc-text">6. 避免不稳定的常用技巧</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E4%B8%BB%E8%A6%81%E8%80%83%E7%82%B9%E6%80%BB%E7%BB%93"><span class="toc-number">1.5.</span> <span class="toc-text">五、主要考点总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%BF%85%E8%83%8C%E6%A6%82%E5%BF%B5"><span class="toc-number">1.5.1.</span> <span class="toc-text">1. 必背概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B8%B8%E8%80%83%E9%A2%98%E5%9E%8B"><span class="toc-number">1.5.2.</span> <span class="toc-text">2. 常考题型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%AB%98%E9%A2%91%E8%80%83%E7%82%B9"><span class="toc-number">1.5.3.</span> <span class="toc-text">3. 高频考点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%98%93%E9%94%99%E6%8F%90%E9%86%92"><span class="toc-number">1.6.</span> <span class="toc-text">六、易错提醒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E8%AE%B0%E5%BF%86%E5%8F%A3%E8%AF%80"><span class="toc-number">1.7.</span> <span class="toc-text">七、记忆口诀</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E6%9C%AC%E7%AB%A0%E9%87%8D%E7%82%B9%E4%B8%80%E5%8F%A5%E8%AF%9D"><span class="toc-number">1.8.</span> <span class="toc-text">八、本章重点一句话</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/yc0203/2026/09/04/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E7%AC%AC%E4%B8%80%E7%AB%A0%E7%BB%AA%E8%AE%BA/" title="数值分析 第一章 绪论：概念、技巧与考点梳理">数值分析 第一章 绪论：概念、技巧与考点梳理</a><time datetime="2026-09-04T04:00:00.000Z" title="发表于 2026-09-04 12:00:00">2026-09-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/yc0203/2026/09/04/AI%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%B0%83%E7%94%A8%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/" title="AI 大模型调用实战：热门模型客户端、API 协议与 Agent 接入全攻略">AI 大模型调用实战：热门模型客户端、API 协议与 Agent 接入全攻略</a><time datetime="2026-09-04T02:30:00.000Z" title="发表于 2026-09-04 10:30:00">2026-09-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/yc0203/2026/09/04/AI%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%85%A5%E9%97%A8%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/" title="AI 大模型入门完全指南：大模型、Agent、API、Skill 详解">AI 大模型入门完全指南：大模型、Agent、API、Skill 详解</a><time datetime="2026-09-04T02:00:00.000Z" title="发表于 2026-09-04 10:00:00">2026-09-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/yc0203/2026/09/03/%E4%BA%91%E4%BA%A7%E5%93%81%E5%85%A5%E9%97%A8%E5%85%A8%E6%99%AF%E6%8C%87%E5%8D%97/" title="云产品入门全景指南：常用云产品详解">云产品入门全景指南：常用云产品详解</a><time datetime="2026-09-03T08:00:00.000Z" title="发表于 2026-09-03 16:00:00">2026-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/yc0203/2026/09/01/Windows%E7%BD%91%E7%BB%9C%E5%AE%9E%E6%93%8D%E7%AC%94%E8%AE%B0/" title="Windows开发者网络实操笔记：IP、端口、DNS、代理协议、环境变量避坑指南">Windows开发者网络实操笔记：IP、端口、DNS、代理协议、环境变量避坑指南</a><time datetime="2026-09-01T06:00:00.000Z" title="发表于 2026-09-01 14:00:00">2026-09-01</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By YCheng</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 6.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.7.0</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/yc0203/js/utils.js?v=5.7.0"></script><script src="/yc0203/js/main.js?v=5.7.0"></script><div class="js-pjax"></div><div id="mini-player" class="mini-player"><div class="mini-player-cover">🎵</div><div class="mini-player-info"><span class="mini-player-title" id="mini-player-title">Loading...</span></div><div class="mini-player-controls"><button class="mini-btn" id="mini-prev" title="上一首">⏮</button><button class="mini-btn play-btn" id="mini-play" title="播放/暂停">▶</button><button class="mini-btn" id="mini-next" title="下一首">⏭</button></div></div><audio id="mini-audio" preload="none"></audio><script src="/yc0203/js/mini-player.js?v=20260903"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
