@@ -1,0 +1,583 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>科研入门完全指南：从寻找方向、文献检索到形成自己的课题 | Cheng's Blog</title><meta name="author" content="YCheng"><meta name="copyright" content="YCheng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="面向科研新手的系统入门指南：如何借助导师、博士论文、高水平论文与科研网站寻找方向，如何检索、阅读、管理文献，并把别人的成果转化为可验证的研究问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="科研入门完全指南：从寻找方向、文献检索到形成自己的课题">
+<meta property="og:url" content="https://yc0203.github.io/yc0203/2026/09/15/%E7%A7%91%E7%A0%94%E5%85%A5%E9%97%A8%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="Cheng&#39;s Blog">
+<meta property="og:description" content="面向科研新手的系统入门指南：如何借助导师、博士论文、高水平论文与科研网站寻找方向，如何检索、阅读、管理文献，并把别人的成果转化为可验证的研究问题。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://yc0203.github.io/yc0203/img/avatar.png">
+<meta property="article:published_time" content="2026-09-15T13:30:00.000Z">
+<meta property="article:modified_time" content="2026-09-15T15:40:53.496Z">
+<meta property="article:author" content="YCheng">
+<meta property="article:tag" content="科研入门">
+<meta property="article:tag" content="文献检索">
+<meta property="article:tag" content="Google Scholar">
+<meta property="article:tag" content="小木虫">
+<meta property="article:tag" content="论文阅读">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yc0203.github.io/yc0203/img/avatar.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "科研入门完全指南：从寻找方向、文献检索到形成自己的课题",
+  "url": "https://yc0203.github.io/yc0203/2026/09/15/%E7%A7%91%E7%A0%94%E5%85%A5%E9%97%A8%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/",
+  "image": "https://yc0203.github.io/yc0203/img/avatar.png",
+  "datePublished": "2026-09-15T13:30:00.000Z",
+  "dateModified": "2026-09-15T15:40:53.496Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "YCheng",
+      "url": "https://yc0203.github.io/yc0203"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/yc0203/img/favicon.png"><link rel="canonical" href="https://yc0203.github.io/yc0203/2026/09/15/%E7%A7%91%E7%A0%94%E5%85%A5%E9%97%A8%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/yc0203/css/index.css?v=5.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        const data = { value }
+
+        if (ttl != null) {
+          data.expiry = Date.now() + ttl * 86400000
+        }
+
+        localStorage.setItem(key, JSON.stringify(data))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return
+
+        try {
+          const data = JSON.parse(itemStr)
+
+          if (data.expiry && Date.now() > data.expiry) {
+            localStorage.removeItem(key)
+            return
+          }
+
+          return data.value
+        } catch {
+          localStorage.removeItem(key)
+        }
+      }
+    }
+
+    const scriptCache = new Map()
+    const cssCache = new Map()
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => {
+        if (scriptCache.has(url)) {
+          return scriptCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+
+          script.src = url
+          script.async = true
+
+          for (const key in attr) {
+            script.setAttribute(key, attr[key])
+          }
+
+          script.onload = resolve
+          script.onerror = reject
+
+          document.head.appendChild(script)
+        })
+
+        scriptCache.set(url, promise)
+
+        return promise
+      },
+      getCSS: (url, id) => {
+        if (cssCache.has(url)) {
+          return cssCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+
+          link.rel = 'stylesheet'
+          link.href = url
+
+          if (id) {
+            link.id = id
+          }
+
+          link.onload = resolve
+          link.onerror = reject
+
+          document.head.appendChild(link)
+        })
+
+        cssCache.set(url, promise)
+
+        return promise
+      },
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]')
+      const activateDarkMode = () => {
+        document.documentElement.dataset.theme = 'dark'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.dataset.theme = 'light'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/yc0203/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '科研入门完全指南：从寻找方向、文献检索到形成自己的课题',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/yc0203/css/custom.css"><link rel="stylesheet" href="/yc0203/css/mini-player.css?v=20260903"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/yc0203/img/avatar.png" onerror="this.onerror=null;this.src='/yc0203/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/yc0203/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/yc0203/tags/"><div class="headline">标签</div><div class="length-num">35</div></a><a href="/yc0203/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/yc0203/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/yc0203/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/yc0203/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/yc0203/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/yc0203/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/yc0203/"><span class="site-name">Cheng's Blog</span></a><a class="nav-page-title" href="/yc0203/"><span class="site-name">科研入门完全指南：从寻找方向、文献检索到形成自己的课题</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/yc0203/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/yc0203/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/yc0203/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/yc0203/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/yc0203/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">科研入门完全指南：从寻找方向、文献检索到形成自己的课题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-09-15T13:30:00.000Z" title="发表于 2026-09-15 21:30:00">2026-09-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-15T15:40:53.496Z" title="更新于 2026-09-15 23:40:53">2026-09-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/yc0203/categories/%E7%A7%91%E7%A0%94/">科研</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/yc0203/categories/%E7%A7%91%E7%A0%94/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/">学习方法</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="科研入门完全指南：从寻找方向、文献检索到形成自己的课题"><a href="#科研入门完全指南：从寻找方向、文献检索到形成自己的课题" class="headerlink" title="科研入门完全指南：从寻找方向、文献检索到形成自己的课题"></a>科研入门完全指南：从寻找方向、文献检索到形成自己的课题</h1><p>很多刚接触科研的同学会把问题理解成：“我要去哪里找论文？”</p>
+<p>但真正困难的并不是下载论文，而是建立一条完整的研究链路：</p>
+<blockquote>
+<p><strong>选对入口 → 看懂领域 → 找到问题 → 设计实验 → 获得证据 → 形成自己的结论。</strong></p>
+</blockquote>
+<p>课堂上老师给出的思路可以整理为七个关键词：<strong>导师、时间、论文、方法、差距、借鉴、讨论</strong>。它们不是七件互不相关的事，而是一套从进入陌生领域到形成课题的流程。</p>
+<p>本文将这套思路展开，并补充 Google Scholar、小木虫、中国知网、Web of Science、IEEE Xplore、arXiv、GitHub 和 Zotero 等常用工具的实际用法。对于电子信息、通信、嵌入式、人工智能等方向，也给出了可直接套用的检索示例。</p>
+<span id="more"></span>
+
+<h2 id="一、先建立正确认识：科研不是“凭空想创新”"><a href="#一、先建立正确认识：科研不是“凭空想创新”" class="headerlink" title="一、先建立正确认识：科研不是“凭空想创新”"></a>一、先建立正确认识：科研不是“凭空想创新”</h2><p>科研通常从已有工作出发。一个可行的新课题，往往来自以下几类变化：</p>
+<ul>
+<li><strong>新领域、新场景</strong>：把成熟方法用于尚未充分研究的对象；</li>
+<li><strong>旧思路、新方法</strong>：保留原问题，引入新的算法、器件、数据或实验手段；</li>
+<li><strong>旧方法、更完善</strong>：提高精度、速度、稳定性、可解释性或降低成本；</li>
+<li><strong>发现已有工作的边界</strong>：找出它在特定条件下失效的原因；</li>
+<li><strong>复现结果后继续推进</strong>：在可信基线上进行消融、对比和改进。</li>
+</ul>
+<p>所以，“借鉴”本身不是问题。关键在于区分三件事：</p>
+<table>
+<thead>
+<tr>
+<th>行为</th>
+<th align="right">是否合理</th>
+<th>核心要求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>学习他人的研究框架和实验方法</td>
+<td align="right">是</td>
+<td>正确引用并理解适用条件</td>
+</tr>
+<tr>
+<td>复现公开论文或开源代码</td>
+<td align="right">是</td>
+<td>说明复现条件、差异与结果</td>
+</tr>
+<tr>
+<td>直接复制文字、数据、图表或结论</td>
+<td align="right">否</td>
+<td>可能构成抄袭或数据不当使用</td>
+</tr>
+</tbody></table>
+<p>真正属于自己的研究，应当能回答：<strong>我改变了什么？为什么这样改？证据是否支持？适用边界在哪里？</strong></p>
+<h2 id="二、课堂七点，整理成一条科研路线"><a href="#二、课堂七点，整理成一条科研路线" class="headerlink" title="二、课堂七点，整理成一条科研路线"></a>二、课堂七点，整理成一条科研路线</h2><h3 id="1-导师：先选研究生态，再选题目"><a href="#1-导师：先选研究生态，再选题目" class="headerlink" title="1. 导师：先选研究生态，再选题目"></a>1. 导师：先选研究生态，再选题目</h3><p>导师不仅提供一个题目，还会影响你接触的问题、设备、数据、合作团队和研究规范。初步了解导师时，可以关注：</p>
+<ul>
+<li>最近 3—5 年持续研究什么，而不是只看个人简介中的宽泛关键词；</li>
+<li>近年论文发表在哪里，是否形成稳定的研究主线；</li>
+<li>学生做过哪些课题、使用哪些实验条件和技术栈；</li>
+<li>课题组是否具备必要设备、数据、算力和行业合作；</li>
+<li>指导方式、组会频率、对学生独立性的要求是否适合自己。</li>
+</ul>
+<p>“知名学者、好大学、好科研单位”可以作为入口，但不能代替具体判断。对本科生和硕士生而言，<strong>方向匹配、可获得的指导与现实资源</strong>，往往比名气本身更直接地影响课题能否落地。</p>
+<h3 id="2-时间：博士论文重点看近-5—10-年"><a href="#2-时间：博士论文重点看近-5—10-年" class="headerlink" title="2. 时间：博士论文重点看近 5—10 年"></a>2. 时间：博士论文重点看近 5—10 年</h3><p>博士论文通常比单篇期刊论文更适合初学者建立领域全貌，因为它会系统交代研究背景、相关工作、理论基础、实验方法与后续展望。</p>
+<p>建议优先查看近 5—10 年的博士论文，同时保留少量更早的奠基性工作。这样既能理解经典问题，又不至于使用已经过时的技术路线。</p>
+<p>阅读博士论文时，不必从第一页逐字读到最后一页。可按下面顺序：</p>
+<ol>
+<li>摘要：研究对象、问题、方法和主要结论；</li>
+<li>绪论：领域背景、研究现状和论文结构；</li>
+<li>文献综述：主要流派、代表工作和争议；</li>
+<li>各章小结：每项工作的贡献与证据；</li>
+<li>总结与展望：作者承认的局限和尚未解决的问题；</li>
+<li>参考文献：继续寻找经典论文、综述和高频作者。</li>
+</ol>
+<h3 id="3-论文：关注学生发表的高水平成果"><a href="#3-论文：关注学生发表的高水平成果" class="headerlink" title="3. 论文：关注学生发表的高水平成果"></a>3. 论文：关注学生发表的高水平成果</h3><p>导师主页告诉你“课题组说自己做什么”，学生论文则告诉你“课题组实际上能做什么”。建议建立一个简表：</p>
+<table>
+<thead>
+<tr>
+<th>信息</th>
+<th>要记录的内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>研究问题</td>
+<td>论文到底解决了哪个具体问题</td>
+</tr>
+<tr>
+<td>数据或对象</td>
+<td>数据集、样本、器件、实验平台</td>
+</tr>
+<tr>
+<td>核心方法</td>
+<td>算法、模型、系统结构、测试手段</td>
+</tr>
+<tr>
+<td>对比基线</td>
+<td>与哪些已有工作比较</td>
+</tr>
+<tr>
+<td>评价指标</td>
+<td>准确率、时延、功耗、成本、鲁棒性等</td>
+</tr>
+<tr>
+<td>主要结论</td>
+<td>结果提升了多少，在哪些条件下成立</td>
+</tr>
+<tr>
+<td>局限</td>
+<td>未覆盖的场景、假设和失败情况</td>
+</tr>
+</tbody></table>
+<p>不要只看论文数量和期刊名称。<strong>问题是否重要、实验是否可信、结果能否复现</strong>，比单一指标更值得关注。</p>
+<h3 id="4-方法：看他们做了什么，我们是否具备条件"><a href="#4-方法：看他们做了什么，我们是否具备条件" class="headerlink" title="4. 方法：看他们做了什么，我们是否具备条件"></a>4. 方法：看他们做了什么，我们是否具备条件</h3><p>面对一篇“看起来很厉害”的论文，先做可行性拆解：</p>
+<ul>
+<li>需要什么硬件、软件、数据、算力和测试环境？</li>
+<li>核心模块中哪些可以复现，哪些依赖特殊设备或内部数据？</li>
+<li>是否有公开代码、数据集、补充材料和参数说明？</li>
+<li>评价指标能否在自己的平台上公平测量？</li>
+<li>时间、预算和安全要求是否允许？</li>
+</ul>
+<p>以电子信息方向为例，一项边缘智能检测研究可能涉及传感器、嵌入式控制、无线通信、模型压缩和云端分析。课题设计时应明确：你是在改进算法、通信协议、硬件结构，还是系统协同机制。范围过大，反而难以形成可验证的贡献。</p>
+<h3 id="5-差距：先做“已有工作—未解决问题”对照表"><a href="#5-差距：先做“已有工作—未解决问题”对照表" class="headerlink" title="5. 差距：先做“已有工作—未解决问题”对照表"></a>5. 差距：先做“已有工作—未解决问题”对照表</h3><p>科研问题常藏在论文没有做到的地方。可以从以下角度寻找差距：</p>
+<ul>
+<li>场景差距：实验室有效，真实复杂环境是否仍有效？</li>
+<li>数据差距：样本是否过少、类别是否不平衡？</li>
+<li>指标差距：只追求准确率，是否忽视时延、功耗和成本？</li>
+<li>方法差距：模型效果好，但是否过大、难部署或不可解释？</li>
+<li>验证差距：是否缺少消融实验、多数据集验证或统计检验？</li>
+<li>工程差距：算法可以运行，系统是否稳定、可维护、可扩展？</li>
+</ul>
+<p>注意：“没人做过”不等于“值得做”。好的研究差距还要同时满足：<strong>有意义、可验证、条件允许</strong>。</p>
+<h3 id="6-借鉴：新领域与新方法，两条常见路线"><a href="#6-借鉴：新领域与新方法，两条常见路线" class="headerlink" title="6. 借鉴：新领域与新方法，两条常见路线"></a>6. 借鉴：新领域与新方法，两条常见路线</h3><p>第一条路线是<strong>新领域、新场景</strong>。例如，把已有异常检测方法迁移到低成本实验室巡检车，但要处理光照变化、网络波动和嵌入式算力限制。</p>
+<p>第二条路线是<strong>旧问题、新方法、更完善</strong>。例如，研究主题仍是目标检测，但将大模型替换为轻量网络，并同时评估精度、推理时延、内存占用与功耗。</p>
+<p>无论选哪条路线，都应设置清晰基线。没有与原方法、常用方法或简单方法对比，就很难说明改进真正有效。</p>
+<h3 id="7-讨论：把想法变成可执行方案"><a href="#7-讨论：把想法变成可执行方案" class="headerlink" title="7. 讨论：把想法变成可执行方案"></a>7. 讨论：把想法变成可执行方案</h3><p>和老师讨论时，不要只带一句“老师，我想做这个”。建议准备一页课题卡片：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">暂定题目：</span><br><span class="line">研究对象与场景：</span><br><span class="line">现有工作怎么做：</span><br><span class="line">仍存在的问题：</span><br><span class="line">我的初步想法：</span><br><span class="line">准备使用的数据/设备/方法：</span><br><span class="line">计划对比的基线：</span><br><span class="line">评价指标：</span><br><span class="line">最大风险与备选方案：</span><br><span class="line">希望老师判断的问题：</span><br></pre></td></tr></table></figure>
+
+<p>讨论的目的不是让老师替你想完，而是尽早排除伪问题、不可行方案和重复工作。</p>
+<h2 id="三、科研网站怎么选：每个平台解决不同问题"><a href="#三、科研网站怎么选：每个平台解决不同问题" class="headerlink" title="三、科研网站怎么选：每个平台解决不同问题"></a>三、科研网站怎么选：每个平台解决不同问题</h2><p>不要期待一个网站完成所有工作。高效的方式是把平台分工。</p>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>主要用途</th>
+<th>最适合什么时候用</th>
+<th>使用提醒</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://scholar.google.com/">Google Scholar</a></td>
+<td>跨学科检索、查引用、找相关论文和不同版本</td>
+<td>刚进入方向、追踪引用网络</td>
+<td>覆盖广，但引用量不等于论文质量</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.cnki.net/">中国知网 CNKI</a></td>
+<td>中文期刊、学位论文、会议等</td>
+<td>查国内现状、中文博士论文</td>
+<td>尽量使用高级检索和学校机构权限</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.wanfangdata.com.cn/">万方数据</a></td>
+<td>中文期刊、学位、会议、标准等</td>
+<td>与知网互补检索</td>
+<td>不同数据库收录范围并不完全相同</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.cqvip.com/">维普</a></td>
+<td>中文期刊与引文检索</td>
+<td>补充中文文献</td>
+<td>重要主题建议跨库查重、补漏</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.webofscience.com/">Web of Science</a></td>
+<td>规范化引文检索和分析</td>
+<td>做系统检索、查引用关系</td>
+<td>通常需要机构订阅</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.scopus.com/">Scopus</a></td>
+<td>摘要、引文与作者信息检索</td>
+<td>跨学科补充、作者与机构分析</td>
+<td>通常需要机构订阅</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/">IEEE Xplore</a></td>
+<td>IEEE 期刊和会议论文</td>
+<td>电子信息、通信、控制、计算机方向</td>
+<td>适合直接按技术术语精确检索</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://arxiv.org/">arXiv</a></td>
+<td>开放预印本</td>
+<td>跟踪 AI、计算机、数学等快速发展方向</td>
+<td>预印本不一定经过正式同行评审</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://muchong.com/bbs/">小木虫</a></td>
+<td>科研经验、期刊投稿和学习交流</td>
+<td>了解经验、常见问题和同行讨论</td>
+<td>社区帖子是线索，不应当作学术证据</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/">GitHub</a></td>
+<td>查找代码、数据处理流程和复现说明</td>
+<td>复现实验、核对实现细节</td>
+<td>检查许可证、版本、Issue 和提交记录</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.zotero.org/">Zotero</a></td>
+<td>管理文献、PDF、标签与引用</td>
+<td>从第一次检索开始就使用</td>
+<td>统一命名和标签，避免后期整理失控</td>
+</tr>
+</tbody></table>
+<p>对“新一代电子信息技术”方向，一个实用组合是：</p>
+<blockquote>
+<p><strong>Google Scholar 找入口 → IEEE Xplore / Web of Science 精确检索 → arXiv 看最新进展 → CNKI 看国内研究与学位论文 → GitHub 查代码 → Zotero 管理文献 → 小木虫了解经验。</strong></p>
+</blockquote>
+<h2 id="四、Google-Scholar：从一篇论文扩展到整个领域"><a href="#四、Google-Scholar：从一篇论文扩展到整个领域" class="headerlink" title="四、Google Scholar：从一篇论文扩展到整个领域"></a>四、Google Scholar：从一篇论文扩展到整个领域</h2><p>Google Scholar 的结果默认按相关性排序，而不是按时间排序。可以用左侧的年份过滤查看近期研究，也可以按日期查看最新收录结果。其官方帮助还提供了“被引用”“相关文章”“所有版本”、邮件提醒和 BibTeX 导出等功能。</p>
+<h3 id="1-常用检索写法"><a href="#1-常用检索写法" class="headerlink" title="1. 常用检索写法"></a>1. 常用检索写法</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;exact paper title&quot;              # 用英文引号精确查标题</span><br><span class="line">author:&quot;Yann LeCun&quot;              # 按作者查找</span><br><span class="line">&quot;edge intelligence&quot; IoT         # 核心短语 + 场景词</span><br><span class="line">&quot;fault diagnosis&quot; review        # 优先寻找综述</span><br><span class="line">&quot;lightweight object detection&quot; embedded</span><br></pre></td></tr></table></figure>
+
+<p>Google Scholar 并不是越长的检索式越好。建议先用 2—4 个核心词找到术语，再逐步加入对象、方法和约束。</p>
+<h3 id="2-三种扩展方向"><a href="#2-三种扩展方向" class="headerlink" title="2. 三种扩展方向"></a>2. 三种扩展方向</h3><ul>
+<li><strong>向后追溯</strong>：看参考文献，找到理论来源和经典方法；</li>
+<li><strong>向前追踪</strong>：点击“被引用”，看后来者如何改进、验证或质疑；</li>
+<li><strong>横向扩展</strong>：点击“相关文章”，寻找同类问题和替代方法。</li>
+</ul>
+<p>这三种方式组成“引用滚雪球”，通常比不停更换关键词更容易找到核心论文。</p>
+<h3 id="3-获取全文与管理引用"><a href="#3-获取全文与管理引用" class="headerlink" title="3. 获取全文与管理引用"></a>3. 获取全文与管理引用</h3><p>如果结果右侧有 <code>[PDF]</code> 或 <code>[HTML]</code>，可直接查看公开版本；若没有，可以检查“所有版本”、学校图书馆订阅或作者的机构主页。点击“引用”可导出 BibTeX、EndNote、RefMan 或 RefWorks 格式，再导入 Zotero。</p>
+<h3 id="4-建立自动追踪"><a href="#4-建立自动追踪" class="headerlink" title="4. 建立自动追踪"></a>4. 建立自动追踪</h3><p>检索式稳定后，可创建邮件提醒；对于核心作者，可关注其新论文；对于奠基论文，可对“被引用”结果建立提醒。这样就能从一次性搜索，升级为持续更新的研究雷达。</p>
+<h2 id="五、小木虫：把它当经验社区，而不是文献数据库"><a href="#五、小木虫：把它当经验社区，而不是文献数据库" class="headerlink" title="五、小木虫：把它当经验社区，而不是文献数据库"></a>五、小木虫：把它当经验社区，而不是文献数据库</h2><p>小木虫的价值主要来自科研人群的真实经验交流，常见内容包括：</p>
+<ul>
+<li>期刊投稿周期、审稿体验和投稿流程；</li>
+<li>保研、考研、读博、基金申请与科研生活讨论；</li>
+<li>软件、仪器、实验和论文写作中的常见问题；</li>
+<li>不同方向从业者对技术路线的交流。</li>
+</ul>
+<p>正确用法是：<strong>用帖子发现关键词、风险和可能的解决思路，再回到官方规则、期刊网站或正式论文核实。</strong></p>
+<p>例如，有帖子说“某期刊审稿很快”，只能说明部分用户的个案；真正投稿前仍要检查期刊官网的范围、作者指南、费用、数据库收录情况和撤稿记录。涉及实验安全、医学判断、学术政策时，更不能仅凭论坛经验作决定。</p>
+<h2 id="六、从零构造一条可复用的检索式"><a href="#六、从零构造一条可复用的检索式" class="headerlink" title="六、从零构造一条可复用的检索式"></a>六、从零构造一条可复用的检索式</h2><p>假设研究兴趣是“面向实验室巡检车的低成本边缘智能异常检测”，先把问题拆成四组词：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>中文词</th>
+<th>英文词</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对象</td>
+<td>巡检机器人、移动机器人、无人车</td>
+<td>inspection robot, mobile robot, UGV</td>
+</tr>
+<tr>
+<td>任务</td>
+<td>异常检测、目标检测、环境监测</td>
+<td>anomaly detection, object detection, environmental monitoring</td>
+</tr>
+<tr>
+<td>方法</td>
+<td>边缘智能、轻量网络、模型压缩</td>
+<td>edge intelligence, lightweight network, model compression</td>
+</tr>
+<tr>
+<td>约束</td>
+<td>低成本、实时、低功耗</td>
+<td>low-cost, real-time, low-power</td>
+</tr>
+</tbody></table>
+<p>然后组合检索：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(&quot;inspection robot&quot; OR &quot;mobile robot&quot;)</span><br><span class="line">AND (&quot;anomaly detection&quot; OR &quot;environmental monitoring&quot;)</span><br><span class="line">AND (&quot;edge intelligence&quot; OR &quot;lightweight network&quot;)</span><br><span class="line">AND (&quot;real-time&quot; OR &quot;low-cost&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>第一次不要把所有限制都加上，否则可能一个结果也没有。推荐顺序：</p>
+<ol>
+<li>对象 + 任务，确认研究领域；</li>
+<li>加入方法，缩小技术路线；</li>
+<li>加入约束，寻找与你资源相符的工作；</li>
+<li>用高频作者、代表论文和引用网络继续扩展；</li>
+<li>把有效检索式、数据库和检索日期记录下来。</li>
+</ol>
+<p>如果要写综述或论文，“我搜过”远远不够；需要留下可复查的检索过程。</p>
+<h2 id="七、论文怎么读：三遍法-一张证据表"><a href="#七、论文怎么读：三遍法-一张证据表" class="headerlink" title="七、论文怎么读：三遍法 + 一张证据表"></a>七、论文怎么读：三遍法 + 一张证据表</h2><h3 id="第一遍：5—10-分钟判断值不值得读"><a href="#第一遍：5—10-分钟判断值不值得读" class="headerlink" title="第一遍：5—10 分钟判断值不值得读"></a>第一遍：5—10 分钟判断值不值得读</h3><p>阅读标题、摘要、图表、结论和小标题，回答：</p>
+<ul>
+<li>它研究什么问题？</li>
+<li>为什么重要？</li>
+<li>用了什么方法？</li>
+<li>结论是什么？</li>
+<li>与我的课题有什么关系？</li>
+</ul>
+<h3 id="第二遍：理解方法与证据"><a href="#第二遍：理解方法与证据" class="headerlink" title="第二遍：理解方法与证据"></a>第二遍：理解方法与证据</h3><p>重点阅读相关工作、方法、实验设计和结果，检查：</p>
+<ul>
+<li>数据怎样获得和划分？</li>
+<li>对比方法是否公平？</li>
+<li>指标能否支持论文的结论？</li>
+<li>是否报告参数、误差、置信区间或重复实验？</li>
+<li>有没有只挑有利结果展示？</li>
+</ul>
+<h3 id="第三遍：尝试复现与质疑"><a href="#第三遍：尝试复现与质疑" class="headerlink" title="第三遍：尝试复现与质疑"></a>第三遍：尝试复现与质疑</h3><p>复现核心流程，改变一个关键条件，看结论是否仍成立。把无法复现的部分、缺失参数和异常结果记录下来。很多真正的研究问题，就是在这一步出现的。</p>
+<p>建议每篇核心论文形成一行证据表：</p>
+<table>
+<thead>
+<tr>
+<th>论文</th>
+<th>问题</th>
+<th>方法</th>
+<th>数据/平台</th>
+<th>基线</th>
+<th>指标</th>
+<th>结论</th>
+<th>局限</th>
+<th>对我的启发</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Paper A</td>
+<td>……</td>
+<td>……</td>
+<td>……</td>
+<td>……</td>
+<td>……</td>
+<td>……</td>
+<td>……</td>
+<td>……</td>
+</tr>
+</tbody></table>
+<h2 id="八、如何判断一个选题是否值得做"><a href="#八、如何判断一个选题是否值得做" class="headerlink" title="八、如何判断一个选题是否值得做"></a>八、如何判断一个选题是否值得做</h2><p>可以用下面五个问题快速筛选：</p>
+<ol>
+<li><strong>重要性</strong>：解决后对理论、工程或实际应用有什么价值？</li>
+<li><strong>新颖性</strong>：与最接近的 3—5 项工作相比，新增了什么？</li>
+<li><strong>可行性</strong>：设备、数据、算力、时间和能力是否允许？</li>
+<li><strong>可验证性</strong>：能否通过实验或分析明确判断成功与失败？</li>
+<li><strong>可表达性</strong>：能否用一句话讲清研究问题和贡献？</li>
+</ol>
+<p>一个更具体的表达模板是：</p>
+<blockquote>
+<p>针对 <strong>某场景</strong> 中 <strong>现有方法的某个局限</strong>，提出 <strong>某种方法或系统</strong>，在 <strong>某数据或实验平台</strong> 上，以 <strong>某组指标</strong> 与 <strong>某些基线</strong> 比较，验证其在 <strong>某些条件</strong> 下的有效性。</p>
+</blockquote>
+<h2 id="九、科研新手最容易踩的坑"><a href="#九、科研新手最容易踩的坑" class="headerlink" title="九、科研新手最容易踩的坑"></a>九、科研新手最容易踩的坑</h2><h3 id="1-只搜中文，不搜英文"><a href="#1-只搜中文，不搜英文" class="headerlink" title="1. 只搜中文，不搜英文"></a>1. 只搜中文，不搜英文</h3><p>容易错过国际主流术语和最新研究。正确做法是先从中文综述学习概念，再建立中英文关键词表。</p>
+<h3 id="2-只看高被引，不看新论文"><a href="#2-只看高被引，不看新论文" class="headerlink" title="2. 只看高被引，不看新论文"></a>2. 只看高被引，不看新论文</h3><p>高被引工作适合建立基础，但新问题和新方法可能尚未积累引用。经典论文与近 3 年论文应搭配阅读。</p>
+<h3 id="3-把引用量、期刊分区当作唯一质量标准"><a href="#3-把引用量、期刊分区当作唯一质量标准" class="headerlink" title="3. 把引用量、期刊分区当作唯一质量标准"></a>3. 把引用量、期刊分区当作唯一质量标准</h3><p>这些指标可以辅助筛选，但无法替代对问题、方法和证据的判断。</p>
+<h3 id="4-收藏很多，真正精读很少"><a href="#4-收藏很多，真正精读很少" class="headerlink" title="4. 收藏很多，真正精读很少"></a>4. 收藏很多，真正精读很少</h3><p>建议把文献分为“背景了解、相关工作、核心精读、准备复现”四级，而不是全部堆在同一文件夹。</p>
+<h3 id="5-先想一个宏大题目，再寻找支持材料"><a href="#5-先想一个宏大题目，再寻找支持材料" class="headerlink" title="5. 先想一个宏大题目，再寻找支持材料"></a>5. 先想一个宏大题目，再寻找支持材料</h3><p>更稳妥的顺序是：阅读代表工作 → 复现关键方法 → 发现差距 → 提出可验证问题。</p>
+<h3 id="6-用-AI-生成不存在的参考文献"><a href="#6-用-AI-生成不存在的参考文献" class="headerlink" title="6. 用 AI 生成不存在的参考文献"></a>6. 用 AI 生成不存在的参考文献</h3><p>AI 可以帮助总结、解释和构造检索词，但作者、题目、期刊、年份、卷期、页码和 DOI 必须回到数据库或出版社页面逐项核验。</p>
+<h3 id="7-忽视代码许可证和数据合规"><a href="#7-忽视代码许可证和数据合规" class="headerlink" title="7. 忽视代码许可证和数据合规"></a>7. 忽视代码许可证和数据合规</h3><p>GitHub 上“能看到”不等于“可以任意复制”。使用代码和数据前，应检查 LICENSE、引用要求、隐私限制和商业使用条件。</p>
+<h2 id="十、一个可执行的-30-天科研入门计划"><a href="#十、一个可执行的-30-天科研入门计划" class="headerlink" title="十、一个可执行的 30 天科研入门计划"></a>十、一个可执行的 30 天科研入门计划</h2><h3 id="第-1-周：建立领域地图"><a href="#第-1-周：建立领域地图" class="headerlink" title="第 1 周：建立领域地图"></a>第 1 周：建立领域地图</h3><ul>
+<li>确定 1 个大方向和 2—3 个子问题；</li>
+<li>找 2 篇近年综述、2 篇博士论文、5 篇代表论文；</li>
+<li>建立中英文关键词表；</li>
+<li>在 Zotero 中建立分类和标签。</li>
+</ul>
+<h3 id="第-2-周：建立证据表"><a href="#第-2-周：建立证据表" class="headerlink" title="第 2 周：建立证据表"></a>第 2 周：建立证据表</h3><ul>
+<li>精读 8—10 篇核心论文；</li>
+<li>记录问题、方法、数据、指标、结论和局限；</li>
+<li>画出主要技术路线；</li>
+<li>找出 2—3 个可能的研究差距。</li>
+</ul>
+<h3 id="第-3-周：做最小复现"><a href="#第-3-周：做最小复现" class="headerlink" title="第 3 周：做最小复现"></a>第 3 周：做最小复现</h3><ul>
+<li>选择一篇有代码或方法清晰的论文；</li>
+<li>跑通最小实验；</li>
+<li>记录环境、参数、结果与失败过程；</li>
+<li>与论文结果比较，分析差异来源。</li>
+</ul>
+<h3 id="第-4-周：形成课题卡片"><a href="#第-4-周：形成课题卡片" class="headerlink" title="第 4 周：形成课题卡片"></a>第 4 周：形成课题卡片</h3><ul>
+<li>把想法压缩成一句研究问题；</li>
+<li>明确基线、变量、指标和实验条件；</li>
+<li>评估时间、设备、数据和风险；</li>
+<li>带着一页课题卡片与导师讨论并修改。</li>
+</ul>
+<h2 id="十一、适合电子信息方向的最小科研工作流"><a href="#十一、适合电子信息方向的最小科研工作流" class="headerlink" title="十一、适合电子信息方向的最小科研工作流"></a>十一、适合电子信息方向的最小科研工作流</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">导师与课题组主页</span><br><span class="line">        ↓</span><br><span class="line">博士论文 / 综述建立知识地图</span><br><span class="line">        ↓</span><br><span class="line">Google Scholar 发现代表论文与引用网络</span><br><span class="line">        ↓</span><br><span class="line">IEEE Xplore / Web of Science 精确检索</span><br><span class="line">        ↓</span><br><span class="line">arXiv 跟踪最新工作，CNKI 补国内研究</span><br><span class="line">        ↓</span><br><span class="line">GitHub 查代码，Zotero 管文献</span><br><span class="line">        ↓</span><br><span class="line">复现基线 → 发现边界 → 设计对比实验</span><br><span class="line">        ↓</span><br><span class="line">整理证据 → 与导师讨论 → 确定课题</span><br></pre></td></tr></table></figure>
+
+<p>科研入门的关键不是一次找到“完美选题”，而是建立一套会不断收敛的过程。每读一批文献，就更新关键词；每做一次实验，就修正假设；每和导师讨论一次，就缩小问题边界。</p>
+<p>当你能够清楚说明“别人做到了什么、还缺什么、我准备怎样验证”，就已经从信息收集真正走向科研了。</p>
+<h2 id="参考与工具入口"><a href="#参考与工具入口" class="headerlink" title="参考与工具入口"></a>参考与工具入口</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://scholar.google.com/intl/en/scholar/help.html">Google Scholar Search Help：检索、全文、提醒与引用导出</a></li>
+<li><a target="_blank" rel="noopener" href="https://muchong.com/bbs/">小木虫学术科研互动社区</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnki.net/">中国知网</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.webofscience.com/">Web of Science</a></li>
+<li><a target="_blank" rel="noopener" href="https://webofscience.zendesk.com/hc/en-us/articles/20129994686737-Cited-Reference-Search">Web of Science Cited Reference Search 帮助</a></li>
+<li><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/">IEEE Xplore Digital Library</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/">arXiv</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zotero.org/support/quick_start_guide">Zotero Quick Start Guide</a></li>
+</ul>
+<blockquote>
+<p>本文中的平台定位和操作说明以其官方网站及帮助文档为准；数据库功能、访问权限和页面布局可能随版本调整。</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://yc0203.github.io/yc0203">YCheng</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://yc0203.github.io/yc0203/2026/09/15/%E7%A7%91%E7%A0%94%E5%85%A5%E9%97%A8%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/">https://yc0203.github.io/yc0203/2026/09/15/%E7%A7%91%E7%A0%94%E5%85%A5%E9%97%A8%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://yc0203.github.io/yc0203" target="_blank">Cheng's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/yc0203/tags/%E7%A7%91%E7%A0%94%E5%85%A5%E9%97%A8/">科研入门</a><a class="post-meta__tags" href="/yc0203/tags/%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2/">文献检索</a><a class="post-meta__tags" href="/yc0203/tags/Google-Scholar/">Google Scholar</a><a class="post-meta__tags" href="/yc0203/tags/%E5%B0%8F%E6%9C%A8%E8%99%AB/">小木虫</a><a class="post-meta__tags" href="/yc0203/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></div><div class="post-share"><div class="social-share" data-image="/yc0203/img/avatar.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/yc0203/2026/09/04/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E7%AC%AC%E4%B8%80%E7%AB%A0%E7%BB%AA%E8%AE%BA/" title="数值分析 第一章 绪论：概念、技巧与考点梳理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">数值分析 第一章 绪论：概念、技巧与考点梳理</div></div><div class="info-2"><div class="info-item-1">数值分析第一章绪论学习笔记，梳理研究对象、误差基础、舍入误差、数值稳定性等核心概念与考点。</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/yc0203/img/avatar.png" onerror="this.onerror=null;this.src='/yc0203/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">YCheng</div><div class="author-info-description">一个分享技术、生活与思考的个人博客</div><div class="site-data"><a href="/yc0203/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/yc0203/tags/"><div class="headline">标签</div><div class="length-num">35</div></a><a href="/yc0203/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yc0203"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/yc0203" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:3506557351@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A7%91%E7%A0%94%E5%85%A5%E9%97%A8%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%EF%BC%9A%E4%BB%8E%E5%AF%BB%E6%89%BE%E6%96%B9%E5%90%91%E3%80%81%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2%E5%88%B0%E5%BD%A2%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AF%BE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">科研入门完全指南：从寻找方向、文献检索到形成自己的课题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%85%88%E5%BB%BA%E7%AB%8B%E6%AD%A3%E7%A1%AE%E8%AE%A4%E8%AF%86%EF%BC%9A%E7%A7%91%E7%A0%94%E4%B8%8D%E6%98%AF%E2%80%9C%E5%87%AD%E7%A9%BA%E6%83%B3%E5%88%9B%E6%96%B0%E2%80%9D"><span class="toc-number">1.1.</span> <span class="toc-text">一、先建立正确认识：科研不是“凭空想创新”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%AF%BE%E5%A0%82%E4%B8%83%E7%82%B9%EF%BC%8C%E6%95%B4%E7%90%86%E6%88%90%E4%B8%80%E6%9D%A1%E7%A7%91%E7%A0%94%E8%B7%AF%E7%BA%BF"><span class="toc-number">1.2.</span> <span class="toc-text">二、课堂七点，整理成一条科研路线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AF%BC%E5%B8%88%EF%BC%9A%E5%85%88%E9%80%89%E7%A0%94%E7%A9%B6%E7%94%9F%E6%80%81%EF%BC%8C%E5%86%8D%E9%80%89%E9%A2%98%E7%9B%AE"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. 导师：先选研究生态，再选题目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%97%B6%E9%97%B4%EF%BC%9A%E5%8D%9A%E5%A3%AB%E8%AE%BA%E6%96%87%E9%87%8D%E7%82%B9%E7%9C%8B%E8%BF%91-5%E2%80%9410-%E5%B9%B4"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 时间：博士论文重点看近 5—10 年</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%AE%BA%E6%96%87%EF%BC%9A%E5%85%B3%E6%B3%A8%E5%AD%A6%E7%94%9F%E5%8F%91%E8%A1%A8%E7%9A%84%E9%AB%98%E6%B0%B4%E5%B9%B3%E6%88%90%E6%9E%9C"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. 论文：关注学生发表的高水平成果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%96%B9%E6%B3%95%EF%BC%9A%E7%9C%8B%E4%BB%96%E4%BB%AC%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%8C%E6%88%91%E4%BB%AC%E6%98%AF%E5%90%A6%E5%85%B7%E5%A4%87%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.2.4.</span> <span class="toc-text">4. 方法：看他们做了什么，我们是否具备条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%B7%AE%E8%B7%9D%EF%BC%9A%E5%85%88%E5%81%9A%E2%80%9C%E5%B7%B2%E6%9C%89%E5%B7%A5%E4%BD%9C%E2%80%94%E6%9C%AA%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%E2%80%9D%E5%AF%B9%E7%85%A7%E8%A1%A8"><span class="toc-number">1.2.5.</span> <span class="toc-text">5. 差距：先做“已有工作—未解决问题”对照表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%80%9F%E9%89%B4%EF%BC%9A%E6%96%B0%E9%A2%86%E5%9F%9F%E4%B8%8E%E6%96%B0%E6%96%B9%E6%B3%95%EF%BC%8C%E4%B8%A4%E6%9D%A1%E5%B8%B8%E8%A7%81%E8%B7%AF%E7%BA%BF"><span class="toc-number">1.2.6.</span> <span class="toc-text">6. 借鉴：新领域与新方法，两条常见路线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E8%AE%A8%E8%AE%BA%EF%BC%9A%E6%8A%8A%E6%83%B3%E6%B3%95%E5%8F%98%E6%88%90%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%B9%E6%A1%88"><span class="toc-number">1.2.7.</span> <span class="toc-text">7. 讨论：把想法变成可执行方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%A7%91%E7%A0%94%E7%BD%91%E7%AB%99%E6%80%8E%E4%B9%88%E9%80%89%EF%BC%9A%E6%AF%8F%E4%B8%AA%E5%B9%B3%E5%8F%B0%E8%A7%A3%E5%86%B3%E4%B8%8D%E5%90%8C%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">三、科研网站怎么选：每个平台解决不同问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Google-Scholar%EF%BC%9A%E4%BB%8E%E4%B8%80%E7%AF%87%E8%AE%BA%E6%96%87%E6%89%A9%E5%B1%95%E5%88%B0%E6%95%B4%E4%B8%AA%E9%A2%86%E5%9F%9F"><span class="toc-number">1.4.</span> <span class="toc-text">四、Google Scholar：从一篇论文扩展到整个领域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%B8%B8%E7%94%A8%E6%A3%80%E7%B4%A2%E5%86%99%E6%B3%95"><span class="toc-number">1.4.1.</span> <span class="toc-text">1. 常用检索写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%89%E7%A7%8D%E6%89%A9%E5%B1%95%E6%96%B9%E5%90%91"><span class="toc-number">1.4.2.</span> <span class="toc-text">2. 三种扩展方向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%8E%B7%E5%8F%96%E5%85%A8%E6%96%87%E4%B8%8E%E7%AE%A1%E7%90%86%E5%BC%95%E7%94%A8"><span class="toc-number">1.4.3.</span> <span class="toc-text">3. 获取全文与管理引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%8A%A8%E8%BF%BD%E8%B8%AA"><span class="toc-number">1.4.4.</span> <span class="toc-text">4. 建立自动追踪</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%B0%8F%E6%9C%A8%E8%99%AB%EF%BC%9A%E6%8A%8A%E5%AE%83%E5%BD%93%E7%BB%8F%E9%AA%8C%E7%A4%BE%E5%8C%BA%EF%BC%8C%E8%80%8C%E4%B8%8D%E6%98%AF%E6%96%87%E7%8C%AE%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.5.</span> <span class="toc-text">五、小木虫：把它当经验社区，而不是文献数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E4%BB%8E%E9%9B%B6%E6%9E%84%E9%80%A0%E4%B8%80%E6%9D%A1%E5%8F%AF%E5%A4%8D%E7%94%A8%E7%9A%84%E6%A3%80%E7%B4%A2%E5%BC%8F"><span class="toc-number">1.6.</span> <span class="toc-text">六、从零构造一条可复用的检索式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E8%AE%BA%E6%96%87%E6%80%8E%E4%B9%88%E8%AF%BB%EF%BC%9A%E4%B8%89%E9%81%8D%E6%B3%95-%E4%B8%80%E5%BC%A0%E8%AF%81%E6%8D%AE%E8%A1%A8"><span class="toc-number">1.7.</span> <span class="toc-text">七、论文怎么读：三遍法 + 一张证据表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%81%8D%EF%BC%9A5%E2%80%9410-%E5%88%86%E9%92%9F%E5%88%A4%E6%96%AD%E5%80%BC%E4%B8%8D%E5%80%BC%E5%BE%97%E8%AF%BB"><span class="toc-number">1.7.1.</span> <span class="toc-text">第一遍：5—10 分钟判断值不值得读</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%81%8D%EF%BC%9A%E7%90%86%E8%A7%A3%E6%96%B9%E6%B3%95%E4%B8%8E%E8%AF%81%E6%8D%AE"><span class="toc-number">1.7.2.</span> <span class="toc-text">第二遍：理解方法与证据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%81%8D%EF%BC%9A%E5%B0%9D%E8%AF%95%E5%A4%8D%E7%8E%B0%E4%B8%8E%E8%B4%A8%E7%96%91"><span class="toc-number">1.7.3.</span> <span class="toc-text">第三遍：尝试复现与质疑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E9%80%89%E9%A2%98%E6%98%AF%E5%90%A6%E5%80%BC%E5%BE%97%E5%81%9A"><span class="toc-number">1.8.</span> <span class="toc-text">八、如何判断一个选题是否值得做</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E7%A7%91%E7%A0%94%E6%96%B0%E6%89%8B%E6%9C%80%E5%AE%B9%E6%98%93%E8%B8%A9%E7%9A%84%E5%9D%91"><span class="toc-number">1.9.</span> <span class="toc-text">九、科研新手最容易踩的坑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%8F%AA%E6%90%9C%E4%B8%AD%E6%96%87%EF%BC%8C%E4%B8%8D%E6%90%9C%E8%8B%B1%E6%96%87"><span class="toc-number">1.9.1.</span> <span class="toc-text">1. 只搜中文，不搜英文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%8F%AA%E7%9C%8B%E9%AB%98%E8%A2%AB%E5%BC%95%EF%BC%8C%E4%B8%8D%E7%9C%8B%E6%96%B0%E8%AE%BA%E6%96%87"><span class="toc-number">1.9.2.</span> <span class="toc-text">2. 只看高被引，不看新论文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%8A%8A%E5%BC%95%E7%94%A8%E9%87%8F%E3%80%81%E6%9C%9F%E5%88%8A%E5%88%86%E5%8C%BA%E5%BD%93%E4%BD%9C%E5%94%AF%E4%B8%80%E8%B4%A8%E9%87%8F%E6%A0%87%E5%87%86"><span class="toc-number">1.9.3.</span> <span class="toc-text">3. 把引用量、期刊分区当作唯一质量标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%94%B6%E8%97%8F%E5%BE%88%E5%A4%9A%EF%BC%8C%E7%9C%9F%E6%AD%A3%E7%B2%BE%E8%AF%BB%E5%BE%88%E5%B0%91"><span class="toc-number">1.9.4.</span> <span class="toc-text">4. 收藏很多，真正精读很少</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%85%88%E6%83%B3%E4%B8%80%E4%B8%AA%E5%AE%8F%E5%A4%A7%E9%A2%98%E7%9B%AE%EF%BC%8C%E5%86%8D%E5%AF%BB%E6%89%BE%E6%94%AF%E6%8C%81%E6%9D%90%E6%96%99"><span class="toc-number">1.9.5.</span> <span class="toc-text">5. 先想一个宏大题目，再寻找支持材料</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E7%94%A8-AI-%E7%94%9F%E6%88%90%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">1.9.6.</span> <span class="toc-text">6. 用 AI 生成不存在的参考文献</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E5%BF%BD%E8%A7%86%E4%BB%A3%E7%A0%81%E8%AE%B8%E5%8F%AF%E8%AF%81%E5%92%8C%E6%95%B0%E6%8D%AE%E5%90%88%E8%A7%84"><span class="toc-number">1.9.7.</span> <span class="toc-text">7. 忽视代码许可证和数据合规</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E4%B8%80%E4%B8%AA%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%9A%84-30-%E5%A4%A9%E7%A7%91%E7%A0%94%E5%85%A5%E9%97%A8%E8%AE%A1%E5%88%92"><span class="toc-number">1.10.</span> <span class="toc-text">十、一个可执行的 30 天科研入门计划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-1-%E5%91%A8%EF%BC%9A%E5%BB%BA%E7%AB%8B%E9%A2%86%E5%9F%9F%E5%9C%B0%E5%9B%BE"><span class="toc-number">1.10.1.</span> <span class="toc-text">第 1 周：建立领域地图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-2-%E5%91%A8%EF%BC%9A%E5%BB%BA%E7%AB%8B%E8%AF%81%E6%8D%AE%E8%A1%A8"><span class="toc-number">1.10.2.</span> <span class="toc-text">第 2 周：建立证据表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-3-%E5%91%A8%EF%BC%9A%E5%81%9A%E6%9C%80%E5%B0%8F%E5%A4%8D%E7%8E%B0"><span class="toc-number">1.10.3.</span> <span class="toc-text">第 3 周：做最小复现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC-4-%E5%91%A8%EF%BC%9A%E5%BD%A2%E6%88%90%E8%AF%BE%E9%A2%98%E5%8D%A1%E7%89%87"><span class="toc-number">1.10.4.</span> <span class="toc-text">第 4 周：形成课题卡片</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E9%80%82%E5%90%88%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF%E6%96%B9%E5%90%91%E7%9A%84%E6%9C%80%E5%B0%8F%E7%A7%91%E7%A0%94%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="toc-number">1.11.</span> <span class="toc-text">十一、适合电子信息方向的最小科研工作流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E4%B8%8E%E5%B7%A5%E5%85%B7%E5%85%A5%E5%8F%A3"><span class="toc-number">1.12.</span> <span class="toc-text">参考与工具入口</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/yc0203/2026/09/15/%E7%A7%91%E7%A0%94%E5%85%A5%E9%97%A8%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/" title="科研入门完全指南：从寻找方向、文献检索到形成自己的课题">科研入门完全指南：从寻找方向、文献检索到形成自己的课题</a><time datetime="2026-09-15T13:30:00.000Z" title="发表于 2026-09-15 21:30:00">2026-09-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/yc0203/2026/09/04/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E7%AC%AC%E4%B8%80%E7%AB%A0%E7%BB%AA%E8%AE%BA/" title="数值分析 第一章 绪论：概念、技巧与考点梳理">数值分析 第一章 绪论：概念、技巧与考点梳理</a><time datetime="2026-09-04T04:00:00.000Z" title="发表于 2026-09-04 12:00:00">2026-09-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/yc0203/2026/09/04/AI%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%B0%83%E7%94%A8%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/" title="AI 大模型调用实战：热门模型客户端、API 协议与 Agent 接入全攻略">AI 大模型调用实战：热门模型客户端、API 协议与 Agent 接入全攻略</a><time datetime="2026-09-04T02:30:00.000Z" title="发表于 2026-09-04 10:30:00">2026-09-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/yc0203/2026/09/04/AI%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%85%A5%E9%97%A8%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/" title="AI 大模型入门完全指南：大模型、Agent、API、Skill 详解">AI 大模型入门完全指南：大模型、Agent、API、Skill 详解</a><time datetime="2026-09-04T02:00:00.000Z" title="发表于 2026-09-04 10:00:00">2026-09-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/yc0203/2026/09/03/%E4%BA%91%E4%BA%A7%E5%93%81%E5%85%A5%E9%97%A8%E5%85%A8%E6%99%AF%E6%8C%87%E5%8D%97/" title="云产品入门全景指南：常用云产品详解">云产品入门全景指南：常用云产品详解</a><time datetime="2026-09-03T08:00:00.000Z" title="发表于 2026-09-03 16:00:00">2026-09-03</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By YCheng</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 6.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.7.0</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/yc0203/js/utils.js?v=5.7.0"></script><script src="/yc0203/js/main.js?v=5.7.0"></script><div class="js-pjax"></div><div id="mini-player" class="mini-player"><div class="mini-player-cover">🎵</div><div class="mini-player-info"><span class="mini-player-title" id="mini-player-title">Loading...</span></div><div class="mini-player-controls"><button class="mini-btn" id="mini-prev" title="上一首">⏮</button><button class="mini-btn play-btn" id="mini-play" title="播放/暂停">▶</button><button class="mini-btn" id="mini-next" title="下一首">⏭</button></div></div><audio id="mini-audio" preload="none"></audio><script src="/yc0203/js/mini-player.js?v=20260903"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
