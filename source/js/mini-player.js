@@ -20,21 +20,41 @@
 
   if (!player || !audio || !title || !playBtn || !prevBtn || !nextBtn) return;
 
+  var expand = document.createElement('button');
+  expand.className = 'mini-expand';
+  expand.type = 'button';
+  expand.textContent = '音乐';
+  expand.setAttribute('aria-label', '展开音乐播放器');
+  expand.setAttribute('aria-expanded', 'false');
+  expand.addEventListener('click', function () {
+    var expanded = player.classList.toggle('is-expanded');
+    expand.setAttribute('aria-expanded', String(expanded));
+    expand.setAttribute('aria-label', expanded ? '收起音乐播放器' : '展开音乐播放器');
+    expand.textContent = expanded ? '收起' : '音乐';
+  });
+  player.prepend(expand);
+
   function loadSong() {
     title.textContent = playlist[current].title;
     audio.src = playlist[current].url;
+  }
+
+  function updatePlayState(playing) {
+    playBtn.textContent = playing ? 'Ⅱ' : '▶';
+    playBtn.setAttribute('aria-label', playing ? '暂停' : '播放');
+    playBtn.setAttribute('aria-pressed', String(playing));
   }
 
   function playSong() {
     var promise = audio.play();
     if (promise) {
       promise.then(function () {
-        playBtn.textContent = '⏸';
+        updatePlayState(true);
       }).catch(function () {
-        playBtn.textContent = '▶';
+        updatePlayState(false);
       });
     } else {
-      playBtn.textContent = '⏸';
+      updatePlayState(true);
     }
   }
 
@@ -43,7 +63,7 @@
       playSong();
     } else {
       audio.pause();
-      playBtn.textContent = '▶';
+      updatePlayState(false);
     }
   }
 
@@ -61,7 +81,7 @@
 
   audio.addEventListener('ended', nextSong);
   audio.addEventListener('error', function () {
-    playBtn.textContent = '▶';
+    updatePlayState(false);
     title.textContent = '播放失败，请检查音乐链接';
   });
   playBtn.addEventListener('click', togglePlay);

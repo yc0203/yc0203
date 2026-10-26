@@ -1,0 +1,55 @@
+- const isTags = kind === 'tags'
+- const roots = site.categories.data.filter(item => !item.parent)
+- const allTags = site.tags.data.slice().sort((a,b) => b.length - a.length || a.name.localeCompare(b.name, 'zh-CN'))
+.taxonomy-hub
+  header.taxonomy-header
+    span.eyebrow FIND YOUR NEXT QUESTION
+    h1= isTags ? '从一个关键词，继续探索。' : '沿着一个方向，慢慢深入。'
+    p= isTags ? '标签连接具体的知识点。一篇文章，可以从不止一个关键词找到。' : '分类是一条有层次的学习路线。先选领域，再进入具体的主题。'
+    nav.taxonomy-tabs(aria-label='浏览方式')
+      a(href=url_for('/categories/') aria-current=!isTags ? 'page' : undefined) 分类
+      a(href=url_for('/tags/') aria-current=isTags ? 'page' : undefined) 标签
+      a(href=url_for('/archives/')) 时间归档
+  if isTags
+    .tag-controls
+      .tag-search-field
+        label(for='tag-search') 找一个关键词
+        input#tag-search(type='search' placeholder='试试 AI、Git、数值分析…' autocomplete='off')
+      .tag-sort-field
+        label(for='tag-sort') 排序
+        select#tag-sort
+          option(value='count') 按文章数量
+          option(value='name') 按名称
+    .taxonomy-summary
+      span#tag-result-count(aria-live='polite') #{allTags.length} 个标签
+      span 点击标签，查看相关文章
+    .tag-library
+      each tag in allTags
+        a.tag-chip(href=url_for(tag.path) data-name=tag.name data-count=tag.length)
+          span= tag.name
+          span.tag-chip-count= tag.length
+    p#tag-empty(hidden) 没有找到这个关键词，换一个试试。
+  else
+    .category-library
+      each category, index in roots
+        - const descriptions = {'AI':'从概念到调用，把大模型的原理和用法串起来。','技术':'亲手搭建、实际操作，留下可以复现的步骤。','理论':'把云、网络和底层概念放回完整的知识图景。','学习':'沿着课程逐章整理，把难点讲清楚。'}
+        - const glyphs = {'AI':'AI','技术':'</>','理论':'⌁','学习':'∑'}
+        - const children = site.categories.data.filter(item => item.parent === category._id)
+        article.category-portal(class='portal-' + index)
+          .category-portal-top
+            span.category-glyph(aria-hidden='true')= glyphs[category.name] || '{}'
+            span= category.length + ' 篇文章'
+          h2
+            a(href=url_for(category.path))= category.name
+          p= descriptions[category.name] || '这里收集着这个领域的探索记录。'
+          .category-children
+            each child in children
+              a(href=url_for(child.path)) #{child.name} #[span=child.length]
+          .category-preview
+            span 最近写下
+            each article in category.posts.sort('date', -1).limit(2).data
+              a(href=url_for(article.path))= article.title
+          a.category-open(href=url_for(category.path)) 进入这个方向 ↗
+  .taxonomy-note
+    span 分类帮你找方向，标签帮你找联系。
+    a(href=url_for('/')) 返回首页 ↗

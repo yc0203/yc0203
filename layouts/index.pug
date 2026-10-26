@@ -1,0 +1,149 @@
+extends includes/layout.pug
+
+block content
+  - page.aside = false
+  .universe-home
+    section.home-hero(aria-labelledby='home-title')
+      .hero-wordmark
+        h1#home-title CHENG
+          span.wordmark-apostrophe(aria-hidden='true')
+          span.wordmark-blog BLOG
+        .wordmark-caption
+          span A PERSONAL UNIVERSE
+          span BY YCHENG · EST. 2025
+      .hero-intro
+        .intro-heading
+          span.eyebrow YCHENG / 一份还在生长的探索地图
+          h2 把「还不懂」，
+            br
+            | 慢慢变成「原来如此」。
+        .intro-copy
+          .intro-tabs(role='tablist' aria-label='认识 YCheng')
+            button.is-active(type='button' role='tab' aria-selected='true' data-intro='learn' data-description='我在西北大学学习新一代电子信息。数值分析、AI、开发工具，这里收集着我把知识一点点弄明白的过程。' data-href=url_for('/categories/学习/') data-link-text='翻开学习笔记') 我在学
+            button(type='button' role='tab' aria-selected='false' data-intro='build' data-description='从搭建这个博客，到弄懂 Git、SSH 和开发环境。我喜欢亲手试一试，再把走过的步骤写下来。' data-href=url_for('/categories/技术/') data-link-text='看看动手记录') 我在做
+            button(type='button' role='tab' aria-selected='false' data-intro='note' data-description='一篇笔记解决一个疑问。写下概念、实操和踩过的坑，也为下一次回来看懂自己留一条路。' data-href=url_for('/archives/') data-link-text='沿着时间翻一翻') 我在记
+          p#intro-description(role='tabpanel' aria-live='polite') 我在西北大学学习新一代电子信息。数值分析、AI、开发工具，这里收集着我把知识一点点弄明白的过程。
+          a#intro-link.text-link(href=url_for('/categories/学习/')) 翻开学习笔记 ↗
+      nav.exploration-map(aria-label='选择一条探索路线')
+        - const routeTitles = {'AI':'AI 与 Agent','技术':'动手开发','理论':'云与网络','学习':'课程手记'}
+        - const routeDescriptions = {'AI':'从原理到实际调用','技术':'搭建、工具与复现','理论':'把概念连成一张网','学习':'沿着课程逐章整理'}
+        each route, routeIndex in site.categories.data.filter(item => !item.parent)
+          a.map-node(href=url_for(route.path) class='map-node-' + routeIndex)
+            span.map-step(aria-hidden='true')= String(routeIndex + 1).padStart(2, '0')
+            span.map-node-copy
+              strong= routeTitles[route.name] || route.name
+              small #{routeDescriptions[route.name]} · #{route.length} 篇
+            span.map-arrow(aria-hidden='true') ↗
+      .playground(data-playground='' aria-label='交互图形区域')
+        .playground-copy
+          span.eyebrow a little break / 探索之外
+          p 读一会儿，
+            br
+            | 也玩一会儿。
+          .playground-hint
+            span.hint-cross(aria-hidden='true') +
+            span 移动鼠标，和比格犬打个招呼
+        canvas#orbit-canvas(role='img' tabindex='0' aria-label='会跟随鼠标摇尾巴的三维比格犬，点击下方开始游戏' aria-describedby='game-instructions')
+        .game-hud(hidden)
+          span.game-lives 生命 3 / 3
+          span.game-power
+          span.game-score 得分 0
+        .game-result(hidden role='status')
+          p.game-final-score
+      .game-controls
+        span.game-caption beagle_walk / 比格犬的探索时间
+        .game-actions
+          span.game-status#game-instructions ← → 移动 · 空格二段跳
+          .game-touch(hidden role='group' aria-label='触屏游戏控制')
+            button(type='button' data-key='ArrowLeft' aria-label='向左移动') ←
+            button(type='button' data-key='ArrowRight' aria-label='向右移动') →
+            button(type='button' data-key='Space' aria-label='跳跃') ↑
+          button.game-start.game-pause(type='button' hidden) 暂停
+          button.game-start.game-restart(type='button' hidden) 再玩一次 ↗
+          button.game-start.game-sound(type='button' aria-pressed='false' aria-label='开启游戏音效' hidden) 音效：关
+          button.game-start#game-toggle(type='button' aria-controls='orbit-canvas' aria-pressed='false' hidden) 玩一下 ↗
+      .hero-strip
+        span.strip-label FIELD NOTES /
+        span.strip-segment build something.
+        span.strip-segment learn something.
+        span.strip-segment 记录每一次发现。
+        a(href=url_for('/about/')) 认识一下
+          span(aria-hidden='true') ↗
+    section.latest-section#latest(aria-labelledby='latest-title')
+      .section-heading
+        .section-heading-main
+          span.eyebrow 01 / THE NOTEBOOK
+          h2#latest-title 最近写下的
+            span.heading-slash /
+        a.text-link(href=url_for('/archives/')) 全部文章 · #{site.posts.length}
+          span(aria-hidden='true') ↗
+      .notebook-toolbar
+        .topic-filters(role='group' aria-label='按主题筛选本页文章' hidden)
+          button.topic-filter.is-active(type='button' data-topic='all' aria-pressed='true') 全部
+          each topic in ['技术', 'AI', '理论', '学习']
+            button.topic-filter(type='button' data-topic=topic aria-pressed='false')= topic
+        span.notebook-count(aria-live='polite') #{page.posts.length} 篇记录
+      .notebook-list
+        each article, index in page.posts.data
+          - const topicNames = article.categories.data.map(category => category.name)
+          - const primaryTopic = topicNames[0] || '技术'
+          - const topicTone = {'AI':'violet','学习':'amber','理论':'blue','技术':'mint'}[primaryTopic] || 'pink'
+          - const topicGlyph = {'AI':'AI','学习':'∑','理论':'⌁','技术':'</>'}[primaryTopic] || '{}'
+          article.notebook-entry(data-topics=JSON.stringify(topicNames) data-tone=topicTone)
+            .entry-index(aria-hidden='true')= String((page.current - 1) * config.index_generator.per_page + index + 1).padStart(2, '0')
+            .entry-body
+              .entry-meta
+                time(datetime=date_xml(article.date))= date(article.date, 'YYYY.MM.DD')
+                span.meta-divider /
+                each category, categoryIndex in article.categories.data
+                  if categoryIndex > 0
+                    span.category-divider ·
+                  a(href=url_for(category.path))= category.name
+              h3
+                a(href=url_for(article.path))= article.title
+              p= article.description || strip_html(article.content).slice(0, 120)
+              .entry-tags
+                each tag in article.tags.data.slice(0, 4)
+                  a(href=url_for(tag.path))= '#' + tag.name
+            a.entry-arrow(href=url_for(article.path) aria-label='阅读：' + article.title)
+              span(aria-hidden='true') ↗
+            .entry-art(aria-hidden='true')
+              span.art-grid
+              span.art-glyph= topicGlyph
+              span.art-caption= primaryTopic + ' / NOTES'
+        p.filter-empty(hidden) 这个主题在本页还没有文章。可以到分类页继续探索。
+      aside.home-sidebar(aria-label='作者与主题')
+        .profile-card
+          img.profile-avatar(src=url_for(theme.avatar.img) alt='YCheng 的头像' width='88' height='88' loading='lazy')
+          span.profile-kicker THE PERSON BEHIND THE NOTES
+          h3= config.author
+          p 西北大学 · 电子信息
+          p 把学到的东西写下来，<br>也把有趣的事情留下来。
+          .profile-stats
+            a(href=url_for('/archives/'))
+              strong= site.posts.length
+              span 文章
+            a(href=url_for('/tags/'))
+              strong= site.tags.length
+              span 标签
+            a(href=url_for('/categories/'))
+              strong= site.categories.length
+              span 分类
+          a.profile-github(href='https://github.com/yc0203' target='_blank' rel='noopener noreferrer') 在 GitHub 找到我 ↗
+        .profile-topics
+          h3 探索主题
+          each category in site.categories.data.filter(item => !item.parent).slice(0, 6)
+            a(href=url_for(category.path))
+              span= category.name
+              span= category.length
+      include includes/pagination.pug
+    section.home-about(aria-labelledby='about-title')
+      .about-label
+        span.eyebrow 02 / BEHIND THE NOTES
+        span.about-monogram(aria-hidden='true') yc.
+      .about-summary
+        h2#about-title 你好，我是 YCheng。
+        p 西北大学 · 新一代电子信息专业。喜欢折腾技术，也喜欢把复杂的事情一点点弄明白。这个博客，就是我的探索日志。
+        .about-links
+          a.text-link(href=url_for('/about/')) 关于我 ↗
+          a.text-link(href='https://github.com/yc0203' target='_blank' rel='noopener noreferrer') GitHub ↗

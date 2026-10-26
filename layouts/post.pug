@@ -1,0 +1,70 @@
+extends includes/layout.pug
+
+block content
+  - page.aside = false
+  - const firstHeading = page.content.match(/^\s*<h1\b[^>]*>[\s\S]*?<\/h1>/i)
+  - const normalizeHeading = value => strip_html(value).replace(/\s/g, '')
+  - const duplicateTitle = firstHeading && normalizeHeading(firstHeading[0]) === normalizeHeading(page.title)
+  - const originalHeadingId = duplicateTitle && firstHeading[0].match(/\bid="([^"]+)"/)
+  - const readingContent = duplicateTitle ? page.content.replace(firstHeading[0], '') : page.content
+  .reading-progress(aria-hidden='true')
+  #post
+    nav.reading-breadcrumbs(aria-label='面包屑')
+      a(href=url_for('/')) 首页
+      span /
+      a(href=url_for('/archives/')) 文章
+      if page.categories.data.length
+        span /
+        a(href=url_for(page.categories.data[0].path))= page.categories.data[0].name
+    if top_img === false
+      include includes/header/post-info.pug
+
+    if showToc
+      details.mobile-toc
+        summary 本篇目录
+          span= '约 ' + Math.max(1, Math.ceil(strip_html(page.content).length / 420)) + ' 分钟'
+        nav(aria-label='本篇目录')!= toc(page.content, {list_number: false, min_depth: 2, max_depth: 3})
+    article#article-container.container.post-content
+      if originalHeadingId
+        span.duplicate-title-anchor(id=originalHeadingId[1] aria-hidden='true')
+      if theme.noticeOutdate.enable && page.noticeOutdate !== false
+        include includes/post/outdate-notice.pug
+      else
+        !=readingContent
+    include includes/post/post-copyright.pug
+    .tag_share
+      if (page.tags.length > 0 && theme.post_meta.post.tags)
+        .post-meta__tag-list
+          each item, index in page.tags.data
+            a(href=url_for(item.path)).post-meta__tags #[=item.name]
+      include includes/third-party/share/index.pug
+
+    if theme.reward.enable && theme.reward.QR_code
+      !=partial('includes/post/reward', {}, {cache: true})
+
+    //- ad
+    if theme.ad && theme.ad.post
+      .ads-wrap!=theme.ad.post
+
+    if theme.post_pagination
+      include includes/pagination.pug
+    if theme.related_post && theme.related_post.enable
+      != related_posts(page,site.posts)
+
+    if page.comments !== false && theme.comments.use
+      - var commentsJsLoad = true
+      !=partial('includes/third-party/comments/index', {}, {cache: true})
+
+  aside#aside-content.aside-content.reading-rail(aria-label='阅读导航')
+    .sticky_layout
+      if showToc
+        #card-toc.card-widget
+          .toc-heading
+            span 本篇导航
+            span#reading-percent 0%
+          .toc-content.is-expand!= toc(page.content, {list_number: false, min_depth: 2, max_depth: 3})
+      .reading-related
+        span.eyebrow 继续探索
+        each category in page.categories.data
+          a(href=url_for(category.path))= category.name
+        a(href=url_for('/archives/')) 返回文章列表 ↗
